@@ -1,0 +1,88 @@
+
+---
+layout: default
+comments: true
+---
+
+<div class="post">
+
+	<h2>{{ page.title }}</h2>
+	<span class="date">{{ page.date | date_to_string }}</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            {% for thetag in page.tags %}
+                <span class="tag">{{thetag}}</span>
+            {% endfor %}
+        </div>
+
+        {{ content }}
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	{% if page.comments %}
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	{% endif %}
+
+</div>
+

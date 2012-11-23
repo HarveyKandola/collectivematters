@@ -1,0 +1,23 @@
+---
+layout: default
+title: .NET in the trenches, building products
+---
+
+<div id="blog-intro">
+Thoughts on buildings enterprise products with the .net stack, business and other geekery.
+</div>
+
+{% for post in site.posts limit: 5 %} 
+	
+	<div class="home-post">
+		<h2><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h2>
+		<div class="date">{{ post.date | date_to_string }}</div>
+		<div class="excerpt">{{ post.excerpt }}</div>
+	</div>
+	
+{% endfor %}
+
+{% if site.posts.size > 5 %}
+	<br/><br/>
+	<strong><a href="{{site.baseurl}}/archive">More Posts &raquo;</a></strong>
+{% endif %}

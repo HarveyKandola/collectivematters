@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog Archive
+---
+<div id="blog-intro">
+Thoughts on buildings enterprise products with the .net stack, business and other geekery.
+</div>
+
+<div>
+	<h2>Blog Archive</h2>
+
+    <div>
+        <table border=0 cellpadding="3" cellspacing="3">
+            {% for post in site.posts %}
+            <tr>
+                <td>&bull; &nbsp;<span class="date">{{ post.date | date_to_string }}</span></td>  
+                <td>&nbsp;</td>
+                <td><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></td>
+            </tr>
+    	{% endfor %}
+        </table>
+    </div>
+
+</div>

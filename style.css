@@ -1,0 +1,205 @@
+body
+{
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color:#000000;  
+    background-color: #ffffff;
+}
+.grid
+{
+    background-color: #ffffff; 
+}
+
+h1
+{
+    font-size: 40px;
+    line-height: 42px;
+    font-weight: bold;
+}
+h2
+{
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: bold;
+}
+h3
+{
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: normal;
+}
+p
+{
+  margin 1em 0 1em 0;
+}
+blockquote
+{
+    padding: 1px 10px 1px 20px;
+    background-color: #f5f5f5;
+    margin-left: 30px;
+    width: 80%;
+    border-left: 3px solid #d8d8d8;
+}
+pre {
+    background-color: #E8E8E8;
+    margin-left: 30px;
+    padding: 5px;
+    width: 80%;
+}
+code
+{
+    background-color: #E8E8E8;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+a, a:visited
+{
+    color: royalblue;
+    text-decoration: none;
+    border-bottom: 1px solid #cccccc;
+}
+
+
+#content
+{
+    border-right: 1px solid #E2E2E2;
+    padding-right: 25px;
+}
+#sidebar
+{
+    margin-top: 25px;
+}
+#sidebar .icon, #sidebar h3, #sidebar p
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#sidebar p
+{
+    line-height: 0;
+}
+#sidebar .social-me
+{
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#sidebar .social-me a
+{
+    border: 0;
+    text-decoration: none;
+    outline: none;
+}
+
+#header h1
+{
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: #562366;
+    padding: 15px 0 15px 20px;
+    border-bottom: 4px solid #A345BF;
+}
+#footer
+{
+    clear: both;
+    width: 100%;
+    border-top: 2px solid #562366;
+}
+
+#blog-intro
+{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0 5px 10px;
+    background-color: #f5f5f5;
+}
+.home-post
+{
+}
+.home-post h2
+{
+    margin: 30px 0 10px 0;
+    padding: 0;
+    font-size: 25px;
+}
+.home-post .date
+{
+  color: gray;
+}
+.home-post .excerpt
+{
+    margin-top: 10px;
+}
+.home-post a
+{
+    text-decoration: none;
+    border: none;
+    color: #4c4c4c;
+}
+.home-post a:hover
+{
+    border: none;
+    color: royalBlue;
+}
+.home-post h2 a
+{
+    line-height: 25px !important;
+}
+.home-post a
+{
+    line-height: 25px;
+}
+
+.post
+{
+  margin: 10px;
+}
+
+.post .date
+{
+    font-size: 14px;
+    color: gray;
+}
+.entry
+{
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+    border-bottom: 1px dotted #E2E2E2;
+}
+.entry .tags
+{
+    margin-top: 10px;
+    font-style:  italic;
+    font-size: 14px;
+    color: gray;
+}
+.entry .tags .tag
+{
+    margin-right: 10px;
+}
+.entry .share
+{
+    margin-top: 30px;
+    vertical-align: top;
+}
+.entry .share a, .entry .share img
+{
+    border: 0;
+    text-decoration: none;
+    outline: none;
+}
+.entry img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.discussion
+{
+    margin: 0 0 40px 40px;
+}
