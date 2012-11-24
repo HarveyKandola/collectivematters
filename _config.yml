@@ -6,7 +6,6 @@ description: Harvey Kandola - .NET in the Trenches
 # Example, you must use http://localhost:4000/path/to/blog
 #baseurl: /path/to/blog 
 
-# The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 url: http://www.collectivematters.com
 
 auto: true
