@@ -94,7 +94,7 @@
 &lt;p&gt;Hope something here helps someone, someday.&lt;/p&gt;
 
 &lt;p&gt;Want to see MVC4 in action? &lt;a href='http://www.geminiplatform.com'&gt;Head over here.&lt;/a&gt;&lt;/p&gt;</description>
-				<published>2012-09-04 00:00:00 +0100</published>
+				<published>Tue Sep 04 00:00:00 +0100 2012</published>
 				<link>http://www.collectivematters.com/2012/09/say-hello-to-gemini-5-worlds-first-mvc-4-app</link>
 			</item>
 		
@@ -187,7 +187,7 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Happy resting.&lt;/p&gt;</description>
-				<published>2012-04-30 00:00:00 +0100</published>
+				<published>Mon Apr 30 00:00:00 +0100 2012</published>
 				<link>http://www.collectivematters.com/2012/04/consuming-asp-net-web-api-with-restsharp</link>
 			</item>
 		
@@ -340,7 +340,7 @@
 &lt;h3 id='download'&gt;Download&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://www.geminiplatform.com/downloads/blog/countersoft-iconfont.zip'&gt;Download&lt;/a&gt; the Countersoft icon font sample complete with sample HTML and CSS.&lt;/p&gt;</description>
-				<published>2012-02-07 00:00:00 +0000</published>
+				<published>Tue Feb 07 00:00:00 +0000 2012</published>
 				<link>http://www.collectivematters.com/2012/02/optimizing-your-mvc4-app-to-the-max</link>
 			</item>
 		
@@ -489,7 +489,7 @@
 &lt;h3 id='further_reading'&gt;Further Reading&lt;/h3&gt;
 
 &lt;p&gt;An interesting blog post by Jason Grigsby entitled &lt;a href='http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold'&gt;CSS Media Query for Mobile is Fool&amp;#8217;s Gold&lt;/a&gt;.&lt;/p&gt;</description>
-				<published>2012-01-23 00:00:00 +0000</published>
+				<published>Mon Jan 23 00:00:00 +0000 2012</published>
 				<link>http://www.collectivematters.com/2012/01/solving-real-world-theming-challenges-with-mvc4-and-sass</link>
 			</item>
 		
@@ -651,7 +651,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;p&gt;Hope this helps you at some point and here is our end result: &lt;a href='http://www.geminiplatform.com'&gt;http://www.geminiplatform.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;For more easy to implement performance tips check out Troy Hunt&amp;#8217;s &lt;a href='http://www.troyhunt.com/2011/12/beyond-yslow-squeeeezing-out-website.html'&gt;Beyond YSlow - Squeeeezing out website network performance&lt;/a&gt; blog post.&lt;/p&gt;</description>
-				<published>2012-01-08 00:00:00 +0000</published>
+				<published>Sun Jan 08 00:00:00 +0000 2012</published>
 				<link>http://www.collectivematters.com/2012/01/tips-for-a-yahoo-yslow-grade-a-website-with-asp-net-mvc</link>
 			</item>
 		
@@ -774,7 +774,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;/ul&gt;
 
 &lt;p&gt;Proof that we can accomplish anything if we work together.&lt;/p&gt;</description>
-				<published>2011-11-10 00:00:00 +0000</published>
+				<published>Thu Nov 10 00:00:00 +0000 2011</published>
 				<link>http://www.collectivematters.com/2011/11/linking-end-users-help-desk-project-management-software-development</link>
 			</item>
 		
@@ -899,7 +899,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;/ul&gt;
 
 &lt;p&gt;End result? An optimized issue management platform that does not get in the way of doing your day job.&lt;/p&gt;</description>
-				<published>2011-09-05 00:00:00 +0100</published>
+				<published>Mon Sep 05 00:00:00 +0100 2011</published>
 				<link>http://www.collectivematters.com/2011/09/five-mistakes-that-can-kill-your-issue-tracker</link>
 			</item>
 		
@@ -918,7 +918,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;p&gt;Try Testing in Gemini and see how intuitive it is to use, how clearly it presents its functionality. With custom fields throughout so you can determine everything you want to about your tests, and a simple structure of Folders holding Test Plans, each detailing Test Cases and each Test Case detailing the steps needed to perform the test, anybody can wrap their heads around the functionality in no time. A Test Run then represents what was tested, by whom, when, and the final result of the Testing Cycle.&lt;/p&gt;
 
 &lt;p&gt;Agile Testing is all very well, but Purple Thinking says that all testing, Agile or not, must be nimble.&lt;/p&gt;</description>
-				<published>2011-03-28 00:00:00 +0100</published>
+				<published>Mon Mar 28 00:00:00 +0100 2011</published>
 				<link>http://www.collectivematters.com/2011/03/nimble-testing-from-countersoft</link>
 			</item>
 		
@@ -941,7 +941,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;p&gt;We need a user community that says to us &amp;#8216;thanks, but the trouble with this, that or t&amp;#8217;other is&amp;#8230;&amp;#8217; It might be flattering to be on the Platinum (oooh look at the big boys) edition, but you are by definition part of a small community and the history of human achievement is the history of collaboration. It cannot possibly be to &lt;em&gt;&lt;em&gt;your&lt;/em&gt;&lt;/em&gt; benefit to be part of a reduced user group.&lt;/p&gt;
 
 &lt;p&gt;Join us, think in purple today. If you want to do something interesting, think of something you rely on and like, then think to yourself &amp;#8216;yes, but the trouble with it is&amp;#8230;&amp;#8217;. You might be surprised by what you come up with. Whatever it is, we are sure it will be an improvement.&lt;/p&gt;</description>
-				<published>2010-12-20 00:00:00 +0000</published>
+				<published>Mon Dec 20 00:00:00 +0000 2010</published>
 				<link>http://www.collectivematters.com/2010/12/the-trouble-with</link>
 			</item>
 		
@@ -956,7 +956,7 @@ $(ProjectDir)assets\scripts\site.js
 &lt;p&gt;All forms of creativity left unchecked produces bizarre results. We have only to look at the recent credit crisis to see that financial gurus need checks and balances. Marketing disasters are everywhere. Small fortunes are spent on sales and advertising that produce near zero returns and in some cases are positively harmful to brand identity. Every year, hundreds of projects run by highly-trained, pragmatic and sensible project managers, overrun by millions. In this context, the developer&amp;#8217;s equivalent of writing his own linked list with binary chop algorithm, when the simple statement SEARCH has already been provided by the tool vendor, is a small price to pay for genius on tap.&lt;/p&gt;
 
 &lt;p&gt;And what genius! The next time you might be tempted to poke fun at software developers just remember that every word you read on this website, every phone call you make, every car you drive, every show you watch, every plane you fly in, every-just-about-everything has been studied, mastered and improved by this special breed, who some people will just never understand.&lt;/p&gt;</description>
-				<published>2010-11-24 00:00:00 +0000</published>
+				<published>Wed Nov 24 00:00:00 +0000 2010</published>
 				<link>http://www.collectivematters.com/2010/11/a-breed-apart</link>
 			</item>
 		
