@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> Optimizing Your Web App To The Max |  .NET in the trenches, building products</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/grid.css" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+        <meta name="keywords" content="harvey kandola, countersoft, gemini, atlas, geminiplatform.com, atlasanswer.com, countersoft.com, gemini issue tracker, issue tracking, issue tracker " />
+		<meta name="description" content="Blog from Harvey Kandola CEO Countersoft, that makes Gemini a leading issue tracker, bug tracker, scrum/agile, testing and project management tool." />
+	</head>
+	<body>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<a href="/">
+					<div id="header">
+						<h1>In the trenches with .NET, building products</h1>
+					</div>
+				</a>
+
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-9-12">
+				<div id="content">
+					<div class="post">
+
+	<h2>Optimizing Your Web App To The Max</h2>
+	<span class="date">07 Feb 2012</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            
+                <span class="tag">glyphs</span>
+            
+                <span class="tag">mvc4</span>
+            
+                <span class="tag">css</span>
+            
+        </div>
+
+        <p>One of my previous posts talked about how we dropped CMS and re-built one of our product sites using ASP.NET MVC4. The objective was performance and so we leveraged Yahoo! YSlow to guide us towards a &#8216;Grade A&#8217; rating.</p>
+
+<p>But what about &#8216;UI&#8217; performance when you are building your application on top of a framework like ASP.NET MVC4? Sure, we can use the same tricks and leverage things like CDN - but there are other considerations when you are building products (a web app) beyond CDN usage.</p>
+
+<h3 id='kill_all_images'>Kill All Images</h3>
+
+<p>You&#8217;re joking right?</p>
+
+<p>Images are needed if you want to put up a toolbar, print icon, or nice gradient backgrounds to make your web app more appealing.</p>
+
+<p>But there is a way you can build a killer UI and yet use no images. No joke.</p>
+
+<h3 id='the_toolbox'>The Toolbox</h3>
+
+<p>Tools required to get the job done:</p>
+
+<ul>
+<li>Open source <a href='http://inkscape.org'>Inkscape</a> tool for creating &#8216;icon&#8217; fonts</li>
+
+<li><a href='http://www.fontsquirrel.com/fontface/generator'>Font Squirrel Generator</a> to generate web embeddable fonts</li>
+
+<li><a href='http://colorzilla.com/gradient-editor'>ColorZilla</a> CSS gradient editor</li>
+</ul>
+
+<p>Let&#8217;s see how we can use these tools.</p>
+
+<h3 id='it_all_starts_with_fonts'>It All Starts With Fonts</h3>
+
+<p>All modern browsers (actually from IE6 onwards) have the ability to download extra fonts from your web server and use them as required. Most browsers (IE8+) support the CSS 2.1 pseudo selector :after which is required for the CSS only approach detailed below.</p>
+
+<p>That&#8217;s why people like Typekit exist - pick a nice font and use it for your web site knowing full well that on first-access, the browser will suck down the required fonts.</p>
+
+<p>You can specify your custom fonts using such stylesheet code:</p>
+
+<p><img alt='Include font files' src='/images/glyphs-include.png' /></p>
+
+<h3 id='representing_icons_with_font'>Representing Icons With Font</h3>
+
+<p>Using our own font in a MVC4 web app means we can explore a method to represent icons using our own custom font.</p>
+
+<p>A typical web app may use icons for things like &#8220;print&#8221;, &#8220;save&#8221;, &#8220;edit&#8221;, pager controls, social tools and plenty more.</p>
+
+<p>The objective is to really kill off those image files so that our MVC4 webpage does not even request any image assets.</p>
+
+<p>So how on earth can you remove all those pesky &#8220;print&#8221;, &#8220;save&#8221; icons from my web app? Use a font that contains your icons.</p>
+
+<p>Here is an example of where we have built a toolbar using this approach:</p>
+
+<p><img alt='Common icons' src='/images/glyphs-commonicons.png' /></p>
+
+<p>No images, all CSS with a custom font that contains representations of our required icons.</p>
+
+<p>If you have no images then this could reduce the need to use CSS sprites, image squishers and potentially tools like Matt Wrock&#8217;s <a href='http://requestreduce.com'>RequestReduce</a> (truly an amazing tool, BTW).</p>
+
+<h3 id='build_your_own_icon_font'>Build Your Own &#8220;Icon&#8221; Font</h3>
+
+<p>We use the excellent open source Inkscape tool to generate the initial SVG font file.</p>
+
+<p>You simply design your icon and assign it to alpha-numeric in your font layout. For example, lower case &#8220;t&#8221; is used to represent a star icon (glyph).</p>
+
+<p><img alt='Star icon' src='/images/glyphs-star.png' /></p>
+
+<p>You can then go ahead and design all your icons and bind them to different glyphs in your font.</p>
+
+<p><img alt='All icons' src='/images/glyphs-icons.png' /></p>
+
+<p>Inkscape will simply save your work as a SVG file format.</p>
+
+<h3 id='make_your_font_ready_for_web_embedding'>Make Your Font Ready For Web Embedding</h3>
+
+<p>Now we can use the <a href='http://www.fontsquirrel.com/fontface/generator'>Font Squirrel @font-face Generator</a> to simply crunch our SVG file and give us some web embeddable fonts for use in our MVC4 project.</p>
+
+<p>Just select your .SVG file and then click the <strong>&#8220;Download You Kit&#8221;</strong> button.</p>
+
+<p><img alt='Download font kit' src='/images/glyphs-downloadkit.png' /></p>
+
+<p><em>Tip: when you click &#8220;Add Fonts&#8221; you will notice the file upload will not select .SVG files - just type in the name of your SVG file and continue.</em></p>
+
+<h3 id='preview_your_web_embeddable_font'>Preview Your Web Embeddable Font</h3>
+
+<p>The kit you download will contain everything you need.</p>
+
+<p><img alt='Kit files' src='/images/glyphs-files.png' /></p>
+
+<p>Just fire up the .html file and see how your icons look as represented by your new font. All your icons will be mapped to characters such as &#8220;a&#8221;.</p>
+
+<p><img alt='Glyphs chart' src='/images/glyphs-chart.png' /></p>
+
+<h3 id='referencing_your_web_embeddable_font'>Referencing Your Web Embeddable Font</h3>
+
+<p>Place your web embeddable font inside your MVC4 solution like any other asset:</p>
+
+<p><img alt='Glyphs assets' src='/images/glyphs-assets.png' /></p>
+
+<p>We simply consume the font through stylesheet code:</p>
+
+<p><img alt='Glyphs css' src='/images/glyphs-css.png' /></p>
+
+<h3 id='using_your_web_embeddable_font'>Using Your Web Embeddable Font</h3>
+
+<p>And now the fun part - making use of our icon font to display images.</p>
+
+<p>We need to generate some stylesheet code that can be used to display icons in our MVC4 web app.</p>
+
+<p>This class is using our custom web embeddable font:</p>
+
+<p><img alt='Glyphs fonticon' src='/images/glyphs-fonticon.png' /></p>
+
+<p>Did you spot the &#8220;voodoo&#8221; syntax above? We are saying that this style matches any element that has a CSS class attached which starts with &#8220;fonticon-&#8220;. This selector has been around since the days of IE6.</p>
+
+<p>And now we can define a CSS class that extends this rule on a per icon type. In this case lower case &#8220;b&#8221; is our &#8220;help&#8221; icon.</p>
+
+<p><img alt='Glyphs fonticon' src='/images/glyphs-fonticon2.png' /></p>
+
+<p>Finally, lets put &#8220;icons&#8221; on the webpage:</p>
+
+<p><img alt='Using Glyphs' src='/images/glyphs-useit.png' /></p>
+
+<p>&#8230;and this will result in:</p>
+
+<p><img alt='Using Glyph result' src='/images/glyphs-result.png' /></p>
+
+<p>And because our icons are represented through a font, we can change the color and size as required using CSS attributes like <strong>color</strong> and <strong>font-size</strong>:</p>
+
+<p><img alt='Using Glyph result' src='/images/glyphs-result2.png' /></p>
+
+<p>There is simply no need to produce different images files for various image sizes or colors.</p>
+
+<h3 id='killing_off_gradient_images_too'>Killing off Gradient Images Too</h3>
+
+<p>Background style gradient images are typically used to make web app&#8217;s look pretty.</p>
+
+<p>But we can also replace these images with CSS equivalents using <a href='http://colorzilla.com/gradient-editor'>ColorZilla</a>. It&#8217;s possible to generate via CSS most effects that you would normally produce in Photoshop.</p>
+
+<p><img alt='gradient' src='/images/glyphs-gradient.png' /></p>
+
+<h3 id='summary'>Summary</h3>
+
+<p>You can build a web app using MVC4 or Web Forms that uses no images but looks awesome.</p>
+
+<p>Pure CSS. Zero images. Reduced web requests, Faster web app.</p>
+
+<p>Hope this helps you at some point and you should also check out Scott Hanselman&#8217;s <a href='http://www.hanselman.com/blog/TheImportanceAndEaseOfMinifyingYourCSSAndJavaScriptAndOptimizingPNGsForYourBlogOrWebsite.aspx'>post on optimization.</a></p>
+
+<h3 id='download'>Download</h3>
+
+<p><a href='http://www.geminiplatform.com/downloads/blog/countersoft-iconfont.zip'>Download</a> the Countersoft icon font sample complete with sample HTML and CSS.</p>
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	
+
+</div>
+
+
+				</div>
+		    </div>
+
+		    <div class="col-3-12">
+				<div id="sidebar">
+
+					<a href="http://www.countersoft.com">
+						<img class="icon" src="/images/icon.png" width="150px" height="150px" title="Harvey Kandola of Countersoft" alt="Harvey Kandola" />
+					</a>
+
+					<h3>Harvey Kandola</h3>
+					<p><a href="http://www.countersoft.com">Founder & CEO at Countersoft</a></p>
+
+					<div class="social-me">
+						<a href="http://www.twitter.com/HarveyKandola" title="Follow"><img src="/images/twitter_32.png" alt="Twitter" /></a>
+						&nbsp;
+						<a href="http://feeds.feedburner.com/HarveyKandola"><img src="/images/rss_32.png" alt="RSS Feed" /></a>
+						&nbsp;
+						<a rel="author" href="https://plus.google.com/117544588623893296380?rel=author">
+						  <img src="/images/google-plus-icon.png" width="32" height="32">
+						</a>
+					</div>
+
+				</div>
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<div id="footer">
+					<p>&copy; 2013 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+				</div>
+
+		    </div>
+		</div>
+
+	</body>
+</html>

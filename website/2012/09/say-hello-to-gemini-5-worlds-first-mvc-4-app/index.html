@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> World's First MVC4 App - Say Hello to Gemini 5 |  .NET in the trenches, building products</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/grid.css" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+        <meta name="keywords" content="harvey kandola, countersoft, gemini, atlas, geminiplatform.com, atlasanswer.com, countersoft.com, gemini issue tracker, issue tracking, issue tracker " />
+		<meta name="description" content="Blog from Harvey Kandola CEO Countersoft, that makes Gemini a leading issue tracker, bug tracker, scrum/agile, testing and project management tool." />
+	</head>
+	<body>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<a href="/">
+					<div id="header">
+						<h1>In the trenches with .NET, building products</h1>
+					</div>
+				</a>
+
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-9-12">
+				<div id="content">
+					<div class="post">
+
+	<h2>World's First MVC4 App - Say Hello to Gemini 5</h2>
+	<span class="date">04 Sep 2012</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            
+                <span class="tag">aspnet</span>
+            
+                <span class="tag">mvc4</span>
+            
+                <span class="tag">gemini</span>
+            
+                <span class="tag">issue-tracking</span>
+            
+        </div>
+
+        <p>I have been speaking at events, user groups and blogging about how we switched to MVC4 while it was still in Developer Preview. Our new tech stack consists of ASP.NET MVC4, Web API, Sass and NHibernate. We re-built our Gemini product afresh and it sports a pretty unique approach to application navigation - App-Nav™. Some folks have commented this approach is Metro-esque. See for yourself.</p>
+
+<h3 id='its_here'>It&#8217;s Here&#8230;</h3>
+
+<p>I am delighted to say we have finally shipped Gemini 5. In summary it&#8217;s an all-in-one agile tracker that covers Agile, Scrum, Help Desk, Ticketing and good old Issue Tracking. Go <a href='http://www.geminiplatform.com'>check it out</a> and see why we got rave reviews at Microsoft TechEd!</p>
+
+<p><img alt='issue tracker' src='/images/first-look.png' /></p>
+
+<p>Gemini 4 was built over a number years on the ASP.NET WebForms 2.0 stack. We just shifted our entire tech stack to the latest from Microsoft. I will blog later why we &#8220;started again&#8221; even though <a href='http://www.joelonsoftware.com/articles/fog0000000069.html'>conventional wisdom</a> says otherwise.</p>
+
+<p>Here is a quick breakdown of what we used to build a commercial product on top of MVC 4.</p>
+
+<h3 id='user_interface'>User Interface</h3>
+
+<p>No JQuery UI, Twitter Bootstrap or third party widgets. Everything in the UI was either home-grown or carefully hand-picked to work with our MVC4 web app.</p>
+
+<ul>
+<li><a href='http://harvesthq.github.com/chosen/'>Chosen</a> - probably the best dropdown, data selector control</li>
+
+<li><a href='http://jscrollpane.kelvinluck.com/'>jScrollPane</a> - nice, neat custom scrollbar library</li>
+
+<li><a href='http://www.jacklmoore.com/colorbox'>Colorbox</a> - safe and easy lightbox plugin</li>
+
+<li><a href='https://code.google.com/p/dynatree/'>Dynatree</a> - which app doesn&#8217;t need a tree control?!</li>
+
+<li><a href='http://omnipotent.net/jquery.sparkline/#s-about'>Micro-charting</a> - nice little micro-charting library</li>
+
+<li><a href='https://github.com/valums/file-uploader'>File Uploader</a> - cross-browser ajax file uploader</li>
+
+<li><a href='http://fgnass.github.com/spin.js/'>Spin.js</a> - customizable Javascript based progress indicators</li>
+
+<li><a href='http://arshaw.com/fullcalendar/'>Full Calendar</a> - Outlook style calendar control</li>
+
+<li><a href='http://www.eyecon.ro/'>Date Picker / Color Picker</a> - basic common picker controls</li>
+
+<li><a href='http://labs.abeautifulsite.net/archived/jquery-contextMenu/demo/'>Context Menu</a> - cross-browser right-click goodness</li>
+
+<li><a href='http://sass-lang.com/'>Sass</a> - if your not using Sass or Less for CSS dev then you are doing it wrong</li>
+</ul>
+
+<p>We must have tested out 100+ UI widget controls and libraries – most failed the cross-browser, usability and the &#8220;can I get it to easily integrate&#8221; test.</p>
+
+<h3 id='middleware'>Middleware</h3>
+
+<p>It&#8217;s dead simple:</p>
+
+<ul>
+<li>Razor View Engine - it works well but the generated views still have too much whitespace for the time being</li>
+
+<li>Just regular Controllers but with a design rule that put Ajax actions into separate Controllers from actions that return Views. It&#8217;s better from a maintenance and processing cycle view-point</li>
+
+<li>Application caching is just based on regular ASP.NET Cache with an option to leverage Redis</li>
+</ul>
+
+<p><img alt='file structure' src='/images/first-structure.png' /></p>
+
+<p>We simply used the framework as-is with the usual mix of Design Patterns and best practices (e.g. using <a href='http://unity.codeplex.com'>Unity</a> for Dependency Injection (because it works on Medium Trust as well)).</p>
+
+<h3 id='data_persistence'>Data Persistence</h3>
+
+<p>We work to support any edition of SQL thanks to our decision to stick with NHibernate. It just works with options for performance tuning and so don&#8217;t discount using an ORM such as NHibernate or Entity Framework. Cut through the FUD and do what works best for you.</p>
+
+<p>Simple mapping files are all we need to define persistence.</p>
+
+<p><img alt='Hibernate' src='/images/first-hbm.png' /></p>
+
+<p>Who says you cannot get ORM to scale and into commercial products?!</p>
+
+<h3 id='product_api'>Product API</h3>
+
+<p>We you build a commercial product the chances are people will want to integrate and extend in ways that you will not even dream up. Cue your product&#8217;s API strategy.</p>
+
+<p>We built our API in just two days using the awesome ASP.NET Web API framework and the equally useful RestSharp library.</p>
+
+<h3 id='and_finding_another_way_to_navigate'>&#8230;And Finding Another Way To Navigate</h3>
+
+<p>Tired of clunky, same-old navigation? I am.</p>
+
+<p>I challenged the UI guys to come up with something more intuitive that actually put users in control.</p>
+
+<p>How about you kill all top-line navigation and instead allow users to pin, share and navigate using Cards/Tiles? Bake in badge notifications to let you know when things change and you&#8217;ve killed off email at the same time.</p>
+
+<p><img alt='AppNav' src='/images/first-appnav.png' /></p>
+
+<p>Hope something here helps someone, someday.</p>
+
+<p>Want to see MVC4 in action? <a href='http://www.geminiplatform.com'>Head over here.</a></p>
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	
+
+</div>
+
+
+				</div>
+		    </div>
+
+		    <div class="col-3-12">
+				<div id="sidebar">
+
+					<a href="http://www.countersoft.com">
+						<img class="icon" src="/images/icon.png" width="150px" height="150px" title="Harvey Kandola of Countersoft" alt="Harvey Kandola" />
+					</a>
+
+					<h3>Harvey Kandola</h3>
+					<p><a href="http://www.countersoft.com">Founder & CEO at Countersoft</a></p>
+
+					<div class="social-me">
+						<a href="http://www.twitter.com/HarveyKandola" title="Follow"><img src="/images/twitter_32.png" alt="Twitter" /></a>
+						&nbsp;
+						<a href="http://feeds.feedburner.com/HarveyKandola"><img src="/images/rss_32.png" alt="RSS Feed" /></a>
+						&nbsp;
+						<a rel="author" href="https://plus.google.com/117544588623893296380?rel=author">
+						  <img src="/images/google-plus-icon.png" width="32" height="32">
+						</a>
+					</div>
+
+				</div>
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<div id="footer">
+					<p>&copy; 2013 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+				</div>
+
+		    </div>
+		</div>
+
+	</body>
+</html>

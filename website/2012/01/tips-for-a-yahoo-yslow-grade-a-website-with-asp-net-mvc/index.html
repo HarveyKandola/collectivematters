@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> Tips for a YSlow 'Grade A' website with ASP.NET MVC 4 |  .NET in the trenches, building products</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/grid.css" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+        <meta name="keywords" content="harvey kandola, countersoft, gemini, atlas, geminiplatform.com, atlasanswer.com, countersoft.com, gemini issue tracker, issue tracking, issue tracker " />
+		<meta name="description" content="Blog from Harvey Kandola CEO Countersoft, that makes Gemini a leading issue tracker, bug tracker, scrum/agile, testing and project management tool." />
+	</head>
+	<body>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<a href="/">
+					<div id="header">
+						<h1>In the trenches with .NET, building products</h1>
+					</div>
+				</a>
+
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-9-12">
+				<div id="content">
+					<div class="post">
+
+	<h2>Tips for a YSlow 'Grade A' website with ASP.NET MVC 4</h2>
+	<span class="date">08 Jan 2012</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            
+                <span class="tag">aspnet-mvc</span>
+            
+                <span class="tag">mvc4</span>
+            
+                <span class="tag">yslow</span>
+            
+        </div>
+
+        <p>The first in a mini-series about how my team builds software with ASP.NET MVC4 and our perspective as a .NET shop.</p>
+
+<p>We re-launched one of our <a href='http://www.geminiplatform.com'>websites</a> on Christmas Eve to freshen things up a little and this time around we dropped the CMS platform and went straight onto ASP.NET MVC 4. Shock. Horror. No CMS. Using beta status framework on a revenue generating dotcom. What next?!</p>
+
+<p>One of the main goals of the website refresh was performance. We used <a href='http://developer.yahoo.com/yslow'>Yahoo! YSlow</a> as our guide to getting towards the &#8216;Grade A&#8217; rating. We learnt some lessons along the way as well as using some great free tools that deserve a mention.</p>
+
+<p>But why jump to MVC 4 when MVC 3 is current and stable release? Simple. We are Developers and are hooked on playing with the latest gadgets - that&#8217;s what we do and live for. No other compelling reason.</p>
+
+<p>The main focus was on putting in place a CDN to serve static content given that our traffic sources are worldwide and first impressions count for new visitors.</p>
+
+<h3 id='core_development_toolbox'>Core Development Toolbox</h3>
+
+<p>A simple yet indispensable list of tools to help ensure we got good dotcom performance.</p>
+
+<ul>
+<li>Style sheets with <a href='http://sass-lang.com'>Sass</a> to leverage things like variables for common color codes, etc.</li>
+
+<li>Mindscape&#8217;s <a href='http://visualstudiogallery.msdn.microsoft.com/2b96d16a-c986-4501-8f97-8008f9db141a'>Web Workbench</a> - works well within Visual Studio for Sass stylesheets.</li>
+
+<li>The <a href='http://ajaxmin.codeplex.com'>Microsoft Ajax Minifier</a> is a no-brainer for minifying your assets</li>
+
+<li>Nice web fonts sourced from either <a href='http://www.google.com/webfonts'>Google Fonts</a> (free) or <a href='https://typekit.com'>Typekit</a> (paid)</li>
+
+<li>Mad Kristensen&#8217;s Web Essentials extension for Visual Studio - read <a href='http://www.hanselman.com/blog/UsefulVisualStudioExtensionWebEssentialsFromMadsKristensen.aspx'>Scott Hanselman&#8217;s overview</a></li>
+</ul>
+
+<h3 id='choose_your_cdn'>Choose Your CDN</h3>
+
+<p>There&#8217;s no reason not to use a CDN service such as <a href='http://aws.amazon.com/cloudfront'>Amazon CloudFront</a> or <a href='&lt;https://www.windowsazure.com/en-us/home/tour/cdn/'>Windows Azure</a>. In fact if you want that YSlow &#8216;Grade A&#8217; rating you will need a CDN to serve up your static content.</p>
+
+<p>If 80% of end-user response time is spent downloading things like images, stylesheets and scripts, then doesn&#8217;t it make sense to spread the load? Read the <a href='http://developer.yahoo.com/performance/rules.html#cdn'>advice</a> of the Yahoo! Exceptional Performance team on CDN and make up your own mind.</p>
+
+<h3 id='mirror_your_cdn'>Mirror Your CDN</h3>
+
+<p>Regardless of your CDN choice you will still need to create those static files inside your Visual Studio project and work with them locally.</p>
+
+<p><img alt='Assets folder' src='/images/yslow-assets-folder.png' /></p>
+
+<p>Once you have your assets in place you should mirror the same folder structure on your CDN. This will allow you to switch between locally deployed assets and those on the CDN. Here&#8217;s a screenshot showing the mirrored folder structure on Amazon CloudFront.</p>
+
+<p><img alt='Amazon Assets folder' src='/images/yslow-assets-folder-amazon.png' /></p>
+
+<p>We use <a href='http://www.cloudberrylab.com/'>CloudBerry Lab&#8217;s</a> cloud storage tools as they provide freeware tools to manage Amazon CloudFront, Windows Azure and other platforms.</p>
+
+<h3 id='integrate_microsoft_ajax_minifier_in_your_build'>Integrate Microsoft Ajax Minifier in your Build</h3>
+
+<p>Minifing your static assets such as stylesheets and scripts is expected and the right thing to do if you want to squeeze out performance.</p>
+
+<p>Install the Microsoft Ajax Minifier and then do the magic in your projects Post-build event.</p>
+
+<p><img alt='Microsoft Ajax Minifier' src='/images/yslow-minifier.png' /></p>
+
+<p>You should minify your stylesheets into a single file and your script into another file. Example:</p>
+
+<pre><code>$(SolutionDir)\Build\AjaxMin.exe
+$(ProjectDir)assets\scripts\jquery.min.js.
+$(ProjectDir)assets\scripts\jquery.nivo.slider.js
+$(ProjectDir)assets\scripts\jquery.validate.js
+$(ProjectDir)assets\scripts\site.js
+-out $(ProjectDir)assets\scripts\all.min.js -clobber</code></pre>
+
+<p>You will need to reference individual files as per above - didn&#8217;t find a wildcard switch to accept multiple files.</p>
+
+<h3 id='reference_cdn_assets_or_local_assets'>Reference CDN Assets (or local assets)</h3>
+
+<p>Even with the resilience that CDN&#8217;s bring, we still insisted that switching between locally available static assets or those on the CDN should be pretty straightforward.</p>
+
+<p><img alt='Reference CDN Assets' src='/images/yslow-localpth.png' /></p>
+
+<p>Did you notice the &#8216;AssetsPath&#8217; reference above? This will either contain a local path or one that points towards the CDN. You can expose this variable to all your ASP.NET MVC views by using a custom <a href='http://msdn.microsoft.com/en-us/library/system.web.mvc.webviewpage(v=vs.98'>WebViewPage</a>.aspx). You simply register your own View Page by editing the &#8220;web.config&#8221; file that resides <strong>inside your &#8220;Views&#8221; folder</strong> and reference your own &#8220;Web View Page&#8221; base class.</p>
+
+<p><img alt='Using own Web View Page' src='/images/yslow-config.png' /></p>
+
+<p>And finally here is our implementation that exposes the correct assets path (yes, you could make this a configuration option).</p>
+
+<p><img alt='Assets path switch' src='/images/yslow-path.png' /></p>
+
+<h3 id='manage_cdn_contents__watch_out'>Manage CDN Contents - watch out!</h3>
+
+<p>At this point:</p>
+
+<ul>
+<li>You have assets both locally and on your CDN</li>
+
+<li>Your assets are automatically minified as part of your build process</li>
+
+<li>You views can reference either local or CDN assets</li>
+</ul>
+
+<p>The CloudBerry tools are a great way to upload your assets to your CDN. But there are a couple of gotcha&#8217;s that you need to be aware - as we found out along the way.</p>
+
+<h3 id='gotcha_1__filename_case_sensitivity'>Gotcha 1 - Filename Case Sensitivity</h3>
+
+<p>For consistencies sake, lower case all your asset filenames such as images, scripts and stylesheets. If you don&#8217;t Amazon, will chuck something like this back at you.</p>
+
+<p><img alt='Assets filename casing' src='/images/yslow-casing.png' /></p>
+
+<p>Bottom line is that casing matters on Amazon CloudFront.</p>
+
+<h3 id='gotcha_2__expires_header'>Gotcha 2 - Expires Header</h3>
+
+<p>Each time you upload a file to Amazon CloudFront you will have to set the Expires header or Yahoo! YSlow will <a href='http://developer.yahoo.com/performance/rules.html#expires'>complain</a> that you have not set them. Setting Expires will ensure that after the initial page load your website visitors will not need to download static content again.</p>
+
+<p>In CloudBerry you can specify Expires Header for any content on your CDN.</p>
+
+<p><img alt='Assets file expires' src='/images/yslow-expires.png' /></p>
+
+<p>Thankfully you can set these headers on folders for recursive goodness.</p>
+
+<h3 id='gotcha_3__public_access'>Gotcha 3 - Public Access</h3>
+
+<p>By default when assets are uploaded to Amazon CloudFront they are not publically accessible – that&#8217;s not good when you consider your assets need to be accessible by everyone that visits your website.</p>
+
+<p>Again, CloudBerry provides a way for you to ensure all assets are public.</p>
+
+<p><img alt='Access control list' src='/images/yslow-acl.png' /></p>
+
+<p>These gotchas can initially result in Yahoo! YSlow not showing what you expect in terms of website performance best practice.</p>
+
+<h3 id='yahoo_yslow_and_that_grade_a'>Yahoo! YSlow (and that &#8216;Grade A&#8217;)</h3>
+
+<p>Finally, go and install the Yahoo! YSlow extension for your web browser and test website performance.</p>
+
+<p><img alt='Install YSlow' src='/images/yslow-install.png' /></p>
+
+<p>When you first run the test you may have to do a couple of things to tell this tool what&#8217;s what in order to get an accurate grading. This usually means telling YSlow about your CDN.</p>
+
+<p><img alt='Set CDN' src='/images/yslow-setcdn.png' /></p>
+
+<p>Once YSlow know about your CDN, all your previous work setting up CDN, Expires headers, minification should pay off with a nice &#8216;Grade A&#8217;.</p>
+
+<p><img alt='YSlow Grade A' src='/images/yslow-result.png' /></p>
+
+<p>There&#8217;s nothing more pleasing than a job well done!</p>
+
+<h3 id='summary'>Summary</h3>
+
+<p>Building a website using the ASP.NET MVC framework that <strong>performs</strong> according to best practice can be accomplished with the right tools.</p>
+
+<p>Some essential tools to help you:</p>
+
+<ul>
+<li>CloudBerry Labs <a href='http://www.cloudberrylab.com'>cloud storage tools</a></li>
+
+<li><a href='http://visualstudiogallery.msdn.microsoft.com/2b96d16a-c986-4501-8f97-8008f9db141a'>Web Workbench</a> + <a href='http://sass-lang.com/'>Sass</a></li>
+
+<li><a href='http://ajaxmin.codeplex.com'>Microsoft Ajax Minifier</a></li>
+
+<li><a href='http://www.google.com/webfonts'>Google Fonts</a></li>
+
+<li><a href='http://visualstudiogallery.msdn.microsoft.com/6ed4c78f-a23e-49ad-b5fd-369af0c2107f'>Mad Kristensen&#8217;s Web Essentials</a></li>
+</ul>
+
+<p>Hope this helps you at some point and here is our end result: <a href='http://www.geminiplatform.com'>http://www.geminiplatform.com</a></p>
+
+<p>For more easy to implement performance tips check out Troy Hunt&#8217;s <a href='http://www.troyhunt.com/2011/12/beyond-yslow-squeeeezing-out-website.html'>Beyond YSlow - Squeeeezing out website network performance</a> blog post.</p>
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	
+
+</div>
+
+
+				</div>
+		    </div>
+
+		    <div class="col-3-12">
+				<div id="sidebar">
+
+					<a href="http://www.countersoft.com">
+						<img class="icon" src="/images/icon.png" width="150px" height="150px" title="Harvey Kandola of Countersoft" alt="Harvey Kandola" />
+					</a>
+
+					<h3>Harvey Kandola</h3>
+					<p><a href="http://www.countersoft.com">Founder & CEO at Countersoft</a></p>
+
+					<div class="social-me">
+						<a href="http://www.twitter.com/HarveyKandola" title="Follow"><img src="/images/twitter_32.png" alt="Twitter" /></a>
+						&nbsp;
+						<a href="http://feeds.feedburner.com/HarveyKandola"><img src="/images/rss_32.png" alt="RSS Feed" /></a>
+						&nbsp;
+						<a rel="author" href="https://plus.google.com/117544588623893296380?rel=author">
+						  <img src="/images/google-plus-icon.png" width="32" height="32">
+						</a>
+					</div>
+
+				</div>
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<div id="footer">
+					<p>&copy; 2013 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+				</div>
+
+		    </div>
+		</div>
+
+	</body>
+</html>

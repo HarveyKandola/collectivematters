@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> Solving Real-world Theming Challenges with MVC4 and Sass |  .NET in the trenches, building products</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/grid.css" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+        <meta name="keywords" content="harvey kandola, countersoft, gemini, atlas, geminiplatform.com, atlasanswer.com, countersoft.com, gemini issue tracker, issue tracking, issue tracker " />
+		<meta name="description" content="Blog from Harvey Kandola CEO Countersoft, that makes Gemini a leading issue tracker, bug tracker, scrum/agile, testing and project management tool." />
+	</head>
+	<body>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<a href="/">
+					<div id="header">
+						<h1>In the trenches with .NET, building products</h1>
+					</div>
+				</a>
+
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-9-12">
+				<div id="content">
+					<div class="post">
+
+	<h2>Solving Real-world Theming Challenges with MVC4 and Sass</h2>
+	<span class="date">23 Jan 2012</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            
+                <span class="tag">aspnet-mvc</span>
+            
+                <span class="tag">mvc4</span>
+            
+                <span class="tag">sass</span>
+            
+                <span class="tag">theming</span>
+            
+                <span class="tag">themes</span>
+            
+        </div>
+
+        <p>Theming or skinning support within your application is great - users love to make an app their own.</p>
+
+<p>ASP.NET Web Forms has theming baked in and it&#8217;s a snap to adopt. We did this for years with one of our products and you would be surprised at how many enterprise customers leveraged ASP.NET Themes to skin the app to match their corporate colors. Dead simple.</p>
+
+<p>Then along came ASP.NET MVC and no more out-of-the-box theming support because the focus is on CSS. This is not a big deal if you Stop-Think-Structure your web application in the right way. And let&#8217;s not forget about the HTML5/CSS3 wave and the whole notion of responsive web design to support mobile devices.</p>
+
+<p>Let&#8217;s see how we can try to build structured theming support working with MVC4 and Sass.</p>
+
+<h3 id='core_development_toolbox'>Core Development Toolbox</h3>
+
+<p>What you need to get the Theming job done.</p>
+
+<ul>
+<li><a href='http://sass-lang.com'>Sass</a> for creating your stylesheets</li>
+
+<li>Mindscape <a href='http://visualstudiogallery.msdn.microsoft.com/2b96d16a-c986-4501-8f97-8008f9db141a'>Web Workbench</a> for automatic Sass stylesheet compilation</li>
+
+<li>Andy Webber&#8217;s <a href='http://css3gen.com'>Css3Gen</a> tool for quickly generating box\text shadows and border radius effects</li>
+
+<li>Mad Kristensen&#8217;s <a href='http://visualstudiogallery.msdn.microsoft.com/6ed4c78f-a23e-49ad-b5fd-369af0c2107f'>Web Essentials</a> Visual Studio extension for handy CSS editing</li>
+
+<li>Mad Kristensen&#8217;s <a href='http://visualstudiogallery.msdn.microsoft.com/a15c3ce9-f58f-42b7-8668-53f6cdc2cd83'>Web Standards Update</a> for HTML5 and CSS3 intellisense support</li>
+
+<li>Mad Kristensen&#8217;s <a href='http://visualstudiogallery.msdn.microsoft.com/a56eddd3-d79b-48ac-8c8f-2db06ade77c3'>Image Optimizer</a> extension for squashing images used by your themes</li>
+</ul>
+
+<p>Themes evolve around CSS and images, so now let&#8217;s see how we should structure our &#8220;assets&#8221; folder to store our stuff.</p>
+
+<h3 id='breakout_your_foundation_css'>Break-out your Foundation CSS</h3>
+
+<p>If you are serious about building your website or application then you will surely have to leverage some sort of widely-accepted base/grid system. For example:</p>
+
+<ul>
+<li><a href='http://html5boilerplate.com'>HTML5 Boilerplate</a> for cross-browser HTML5 ready HTML/CSS template</li>
+
+<li>Any CSS Grid framework such as <a href='http://960.gs'>960</a> to bring uniformity to your layouts</li>
+</ul>
+
+<p>Essentially, you have to keep your &#8220;foundation&#8221; stylesheets separate from &#8220;presentation&#8221; stylesheets (which are theme specific).</p>
+
+<p><img alt='Separate CSS' src='/images/theme-split.png' /></p>
+
+<p>Note how the core stylesheets are outside of the &#8220;default&#8221; theme folder.</p>
+
+<h3 id='organize_images_folder'>Organize Images Folder</h3>
+
+<p>Images should be organized to ensure theme specific images are kept away from &#8220;meta&#8221; level images.</p>
+
+<p><img alt='Theme images' src='/images/theme-images.png' /></p>
+
+<p>Notice how the &#8220;default&#8221; theme images folder lives inside a &#8220;design&#8221; folder whilst &#8220;meta&#8221; images are completely ring-fenced. This can be hard to refactor afterwards so get it done right from day one.</p>
+
+<h3 id='folder_structures_by_theme_by_platform'>Folder Structures By Theme, By Platform</h3>
+
+<p>How can you structure theme stylesheets that cater for both desktops and mobile devices?</p>
+
+<p>What about controlling common CSS elements that are used by desktops and mobile devices?</p>
+
+<p>What about common page specifics that do not change between themes?</p>
+
+<p>We can address all these issues by carefully structuring our style assets:</p>
+
+<p><img alt='Theme structure' src='/images/theme-structure.png' /></p>
+
+<p>So now we can have different themes and within each theme we can support platform specific styling. As a bonus we also have a &#8220;global&#8221; stylesheet that contains common CSS elements applicable to all platforms and themes.</p>
+
+<p>That&#8217;s what we mean by <strong>Stop-Think-Structure</strong>.</p>
+
+<h3 id='sass_and_nested_css_files'>Sass and Nested CSS Files</h3>
+
+<p>Next step is to arrange &#8220;nested&#8221; stylesheets in a manageable manner. Enter Sass:</p>
+
+<blockquote>
+<p>Sass is a meta-language on top of CSS that&#8217;s used to describe the style of a document cleanly and structurally, with more power than flat CSS allows. Sass both provides a simpler, more elegant syntax for CSS and implements various features that are useful for creating manageable stylesheets.</p>
+</blockquote>
+
+<p>There are three levels of nesting that we can employ:</p>
+
+<p><img alt='Theme levels' src='/images/theme-levels.png' /></p>
+
+<h3 id='level_0__globalscss'>Level 0 - global.scss</h3>
+
+<p>This stylesheet contains theme-neutral variables and styles including re-usable Sass &#8220;mixins&#8221; (that can be thought of as CSS functions). The contents of this &#8220;global&#8221; stylesheet will be available to all themes.</p>
+
+<p><img alt='Theme level 0' src='/images/theme-level0.png' /></p>
+
+<h3 id='level_1__themescss'>Level 1 - theme.scss</h3>
+
+<p>Next up is the theme specific stylesheet that includes all the reusable stuff from our &#8220;global&#8221; stylesheet above.</p>
+
+<p><img alt='Theme level 1' src='/images/theme-level1.png' /></p>
+
+<p>We specify the theme colors and other theme specific stuff.</p>
+
+<h3 id='level_2__desktopscss_and_mobilescss'>Level 2 - desktop.scss and mobile.scss</h3>
+
+<p>These platform specific stylesheets are BOTH theme and platform specific and extend the &#8216;theme&#8217; stylesheet above.</p>
+
+<p>We can now set up the &#8216;desktop.scss&#8217; stylesheet with styling that is relevant for serving content to desktop browsers.</p>
+
+<p><img alt='Theme level 2' src='/images/theme-level2a.png' /></p>
+
+<p>Similarly, we can do different styling for mobile devices using the &#8216;mobile.scss&#8217; file.</p>
+
+<p><img alt='Theme level 2' src='/images/theme-level2b.png' /></p>
+
+<p>We could use a SINGLE stylesheet for both desktop and mobile devices and leverage CSS Media Queries.</p>
+
+<p>We have chosen to split out CSS for desktop and mobile. The next blog post in this mini-series will show you how we build upon these by using different Master Pages with the new MVC4 mobile features.</p>
+
+<h3 id='reference_theme_in_master_pages'>Reference Theme In Master Pages</h3>
+
+<p>Now all your master pages can simply reference the required theme for the user:</p>
+
+<p><img alt='Theme reference' src='/images/theme-reference.png' /></p>
+
+<p>You can simply expose the theme name from your <a href='http://haacked.com/archive/2011/02/21/changing-base-type-of-a-razor-view.aspx'>BaseViewPage</a> implementation:</p>
+
+<p><img alt='Base View Page' src='/images/theme-baseviewpage.png' /></p>
+
+<p>By using our own BaseViewPage implementation we can centralize and inject non-view-model stuff into all view pages.</p>
+
+<h3 id='phew'>Phew!</h3>
+
+<p>Wow. Nested stylesheets. Split by desktop and mobile devices.</p>
+
+<p>That&#8217;s the price that we have to pay as an ISV building products - complexity comes with the territory as we are not building yet-another-intranet-app. The CSS is layered for a reason and no doubt there could be ways to optimize this setup - there are a couple areas of improvement that I will cover off in the during the course of this mini-series.</p>
+
+<h3 id='finally_a_sass_tip_for_developers'>Finally, a Sass Tip For Developers</h3>
+
+<p>I love my Designers.</p>
+
+<p>But sometimes I wonder when I ask for a color code if they are just making up hex numbers. EAEAEA. F4D3AF. 4C4C4C. F5F5F5?!</p>
+
+<p>As a developer it drives me crazy to see two dozen hex color codes in my CSS. So try to work with a core half dozen colors and then leverage some Sass &#8220;darken&#8221; and &#8220;lighten&#8221; magic to create additional color shades!</p>
+
+<p><img alt='Sass Magic' src='/images/theme-sass.png' /></p>
+
+<p>That works for me.</p>
+
+<h3 id='further_reading'>Further Reading</h3>
+
+<p>An interesting blog post by Jason Grigsby entitled <a href='http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold'>CSS Media Query for Mobile is Fool&#8217;s Gold</a>.</p>
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	
+
+</div>
+
+
+				</div>
+		    </div>
+
+		    <div class="col-3-12">
+				<div id="sidebar">
+
+					<a href="http://www.countersoft.com">
+						<img class="icon" src="/images/icon.png" width="150px" height="150px" title="Harvey Kandola of Countersoft" alt="Harvey Kandola" />
+					</a>
+
+					<h3>Harvey Kandola</h3>
+					<p><a href="http://www.countersoft.com">Founder & CEO at Countersoft</a></p>
+
+					<div class="social-me">
+						<a href="http://www.twitter.com/HarveyKandola" title="Follow"><img src="/images/twitter_32.png" alt="Twitter" /></a>
+						&nbsp;
+						<a href="http://feeds.feedburner.com/HarveyKandola"><img src="/images/rss_32.png" alt="RSS Feed" /></a>
+						&nbsp;
+						<a rel="author" href="https://plus.google.com/117544588623893296380?rel=author">
+						  <img src="/images/google-plus-icon.png" width="32" height="32">
+						</a>
+					</div>
+
+				</div>
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<div id="footer">
+					<p>&copy; 2013 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+				</div>
+
+		    </div>
+		</div>
+
+	</body>
+</html>
