@@ -17,7 +17,7 @@
 
 				<a href="/">
 					<div id="header">
-						<h1>In the trenches with .NET, building products</h1>
+						<h1>.NET in the trenches, building products</h1>
 					</div>
 				</a>
 
@@ -78,7 +78,7 @@
 
 <p>You can specify your custom fonts using such stylesheet code:</p>
 
-<p><img src='/images/glyphs-include.png' alt='Include font files' /></p>
+<p><img alt='Include font files' src='/images/glyphs-include.png' /></p>
 
 <h3 id='representing_icons_with_font'>Representing Icons With Font</h3>
 
@@ -92,7 +92,7 @@
 
 <p>Here is an example of where we have built a toolbar using this approach:</p>
 
-<p><img src='/images/glyphs-commonicons.png' alt='Common icons' /></p>
+<p><img alt='Common icons' src='/images/glyphs-commonicons.png' /></p>
 
 <p>No images, all CSS with a custom font that contains representations of our required icons.</p>
 
@@ -104,11 +104,11 @@
 
 <p>You simply design your icon and assign it to alpha-numeric in your font layout. For example, lower case &#8220;t&#8221; is used to represent a star icon (glyph).</p>
 
-<p><img src='/images/glyphs-star.png' alt='Star icon' /></p>
+<p><img alt='Star icon' src='/images/glyphs-star.png' /></p>
 
 <p>You can then go ahead and design all your icons and bind them to different glyphs in your font.</p>
 
-<p><img src='/images/glyphs-icons.png' alt='All icons' /></p>
+<p><img alt='All icons' src='/images/glyphs-icons.png' /></p>
 
 <p>Inkscape will simply save your work as a SVG file format.</p>
 
@@ -118,7 +118,7 @@
 
 <p>Just select your .SVG file and then click the <strong>&#8220;Download You Kit&#8221;</strong> button.</p>
 
-<p><img src='/images/glyphs-downloadkit.png' alt='Download font kit' /></p>
+<p><img alt='Download font kit' src='/images/glyphs-downloadkit.png' /></p>
 
 <p><em>Tip: when you click &#8220;Add Fonts&#8221; you will notice the file upload will not select .SVG files - just type in the name of your SVG file and continue.</em></p>
 
@@ -126,21 +126,21 @@
 
 <p>The kit you download will contain everything you need.</p>
 
-<p><img src='/images/glyphs-files.png' alt='Kit files' /></p>
+<p><img alt='Kit files' src='/images/glyphs-files.png' /></p>
 
 <p>Just fire up the .html file and see how your icons look as represented by your new font. All your icons will be mapped to characters such as &#8220;a&#8221;.</p>
 
-<p><img src='/images/glyphs-chart.png' alt='Glyphs chart' /></p>
+<p><img alt='Glyphs chart' src='/images/glyphs-chart.png' /></p>
 
 <h3 id='referencing_your_web_embeddable_font'>Referencing Your Web Embeddable Font</h3>
 
 <p>Place your web embeddable font inside your MVC4 solution like any other asset:</p>
 
-<p><img src='/images/glyphs-assets.png' alt='Glyphs assets' /></p>
+<p><img alt='Glyphs assets' src='/images/glyphs-assets.png' /></p>
 
 <p>We simply consume the font through stylesheet code:</p>
 
-<p><img src='/images/glyphs-css.png' alt='Glyphs css' /></p>
+<p><img alt='Glyphs css' src='/images/glyphs-css.png' /></p>
 
 <h3 id='using_your_web_embeddable_font'>Using Your Web Embeddable Font</h3>
 
@@ -150,25 +150,25 @@
 
 <p>This class is using our custom web embeddable font:</p>
 
-<p><img src='/images/glyphs-fonticon.png' alt='Glyphs fonticon' /></p>
+<p><img alt='Glyphs fonticon' src='/images/glyphs-fonticon.png' /></p>
 
 <p>Did you spot the &#8220;voodoo&#8221; syntax above? We are saying that this style matches any element that has a CSS class attached which starts with &#8220;fonticon-&#8220;. This selector has been around since the days of IE6.</p>
 
 <p>And now we can define a CSS class that extends this rule on a per icon type. In this case lower case &#8220;b&#8221; is our &#8220;help&#8221; icon.</p>
 
-<p><img src='/images/glyphs-fonticon2.png' alt='Glyphs fonticon' /></p>
+<p><img alt='Glyphs fonticon' src='/images/glyphs-fonticon2.png' /></p>
 
 <p>Finally, lets put &#8220;icons&#8221; on the webpage:</p>
 
-<p><img src='/images/glyphs-useit.png' alt='Using Glyphs' /></p>
+<p><img alt='Using Glyphs' src='/images/glyphs-useit.png' /></p>
 
 <p>&#8230;and this will result in:</p>
 
-<p><img src='/images/glyphs-result.png' alt='Using Glyph result' /></p>
+<p><img alt='Using Glyph result' src='/images/glyphs-result.png' /></p>
 
 <p>And because our icons are represented through a font, we can change the color and size as required using CSS attributes like <strong>color</strong> and <strong>font-size</strong>:</p>
 
-<p><img src='/images/glyphs-result2.png' alt='Using Glyph result' /></p>
+<p><img alt='Using Glyph result' src='/images/glyphs-result2.png' /></p>
 
 <p>There is simply no need to produce different images files for various image sizes or colors.</p>
 
@@ -178,7 +178,7 @@
 
 <p>But we can also replace these images with CSS equivalents using <a href='http://colorzilla.com/gradient-editor'>ColorZilla</a>. It&#8217;s possible to generate via CSS most effects that you would normally produce in Photoshop.</p>
 
-<p><img src='/images/glyphs-gradient.png' alt='gradient' /></p>
+<p><img alt='gradient' src='/images/glyphs-gradient.png' /></p>
 
 <h3 id='summary'>Summary</h3>
 
@@ -288,15 +288,14 @@
 		    </div>
 		</div>
 
-		<div class="grid grid-pad">
-		    <div class="col-1-1">
+        <div class="grid grid-pad">
+    <div class="col-1-1">
+        <div id="footer">
+            <p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+        </div>
+    </div>
+</div>
 
-				<div id="footer">
-					<p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
-				</div>
-
-		    </div>
-		</div>
 
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>{% if page.title %} {{ page.title }} | {% endif %} .NET in the trenches, building products</title>
+		<title>{% if page.title %} {{ page.title }} | {% endif %} {% include blog-title.html %}</title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{site.baseurl}}/normalize.css" />
         <link rel="stylesheet" href="{{site.baseurl}}/grid.css" />
@@ -17,7 +17,7 @@
 
 				<a href="{{site.baseurl}}/">
 					<div id="header">
-						<h1>In the trenches with .NET, building products</h1>
+						<h1>{% include blog-title.html %}</h1>
 					</div>
 				</a>
 
@@ -55,15 +55,7 @@
 		    </div>
 		</div>
 
-		<div class="grid grid-pad">
-		    <div class="col-1-1">
-
-				<div id="footer">
-					<p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
-				</div>
-
-		    </div>
-		</div>
+        {% include footer.html %}
 
 	</body>
 </html>

@@ -17,7 +17,7 @@
 
 				<a href="/">
 					<div id="header">
-						<h1>In the trenches with .NET, building products</h1>
+						<h1>.NET in the trenches, building products</h1>
 					</div>
 				</a>
 
@@ -88,7 +88,7 @@
 
 <p>Essentially, you have to keep your &#8220;foundation&#8221; stylesheets separate from &#8220;presentation&#8221; stylesheets (which are theme specific).</p>
 
-<p><img src='/images/theme-split.png' alt='Separate CSS' /></p>
+<p><img alt='Separate CSS' src='/images/theme-split.png' /></p>
 
 <p>Note how the core stylesheets are outside of the &#8220;default&#8221; theme folder.</p>
 
@@ -96,7 +96,7 @@
 
 <p>Images should be organized to ensure theme specific images are kept away from &#8220;meta&#8221; level images.</p>
 
-<p><img src='/images/theme-images.png' alt='Theme images' /></p>
+<p><img alt='Theme images' src='/images/theme-images.png' /></p>
 
 <p>Notice how the &#8220;default&#8221; theme images folder lives inside a &#8220;design&#8221; folder whilst &#8220;meta&#8221; images are completely ring-fenced. This can be hard to refactor afterwards so get it done right from day one.</p>
 
@@ -110,7 +110,7 @@
 
 <p>We can address all these issues by carefully structuring our style assets:</p>
 
-<p><img src='/images/theme-structure.png' alt='Theme structure' /></p>
+<p><img alt='Theme structure' src='/images/theme-structure.png' /></p>
 
 <p>So now we can have different themes and within each theme we can support platform specific styling. As a bonus we also have a &#8220;global&#8221; stylesheet that contains common CSS elements applicable to all platforms and themes.</p>
 
@@ -126,19 +126,19 @@
 
 <p>There are three levels of nesting that we can employ:</p>
 
-<p><img src='/images/theme-levels.png' alt='Theme levels' /></p>
+<p><img alt='Theme levels' src='/images/theme-levels.png' /></p>
 
 <h3 id='level_0__globalscss'>Level 0 - global.scss</h3>
 
 <p>This stylesheet contains theme-neutral variables and styles including re-usable Sass &#8220;mixins&#8221; (that can be thought of as CSS functions). The contents of this &#8220;global&#8221; stylesheet will be available to all themes.</p>
 
-<p><img src='/images/theme-level0.png' alt='Theme level 0' /></p>
+<p><img alt='Theme level 0' src='/images/theme-level0.png' /></p>
 
 <h3 id='level_1__themescss'>Level 1 - theme.scss</h3>
 
 <p>Next up is the theme specific stylesheet that includes all the reusable stuff from our &#8220;global&#8221; stylesheet above.</p>
 
-<p><img src='/images/theme-level1.png' alt='Theme level 1' /></p>
+<p><img alt='Theme level 1' src='/images/theme-level1.png' /></p>
 
 <p>We specify the theme colors and other theme specific stuff.</p>
 
@@ -148,11 +148,11 @@
 
 <p>We can now set up the &#8216;desktop.scss&#8217; stylesheet with styling that is relevant for serving content to desktop browsers.</p>
 
-<p><img src='/images/theme-level2a.png' alt='Theme level 2' /></p>
+<p><img alt='Theme level 2' src='/images/theme-level2a.png' /></p>
 
 <p>Similarly, we can do different styling for mobile devices using the &#8216;mobile.scss&#8217; file.</p>
 
-<p><img src='/images/theme-level2b.png' alt='Theme level 2' /></p>
+<p><img alt='Theme level 2' src='/images/theme-level2b.png' /></p>
 
 <p>We could use a SINGLE stylesheet for both desktop and mobile devices and leverage CSS Media Queries.</p>
 
@@ -162,11 +162,11 @@
 
 <p>Now all your master pages can simply reference the required theme for the user:</p>
 
-<p><img src='/images/theme-reference.png' alt='Theme reference' /></p>
+<p><img alt='Theme reference' src='/images/theme-reference.png' /></p>
 
 <p>You can simply expose the theme name from your <a href='http://haacked.com/archive/2011/02/21/changing-base-type-of-a-razor-view.aspx'>BaseViewPage</a> implementation:</p>
 
-<p><img src='/images/theme-baseviewpage.png' alt='Base View Page' /></p>
+<p><img alt='Base View Page' src='/images/theme-baseviewpage.png' /></p>
 
 <p>By using our own BaseViewPage implementation we can centralize and inject non-view-model stuff into all view pages.</p>
 
@@ -184,7 +184,7 @@
 
 <p>As a developer it drives me crazy to see two dozen hex color codes in my CSS. So try to work with a core half dozen colors and then leverage some Sass &#8220;darken&#8221; and &#8220;lighten&#8221; magic to create additional color shades!</p>
 
-<p><img src='/images/theme-sass.png' alt='Sass Magic' /></p>
+<p><img alt='Sass Magic' src='/images/theme-sass.png' /></p>
 
 <p>That works for me.</p>
 
@@ -288,15 +288,14 @@
 		    </div>
 		</div>
 
-		<div class="grid grid-pad">
-		    <div class="col-1-1">
+        <div class="grid grid-pad">
+    <div class="col-1-1">
+        <div id="footer">
+            <p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+        </div>
+    </div>
+</div>
 
-				<div id="footer">
-					<p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
-				</div>
-
-		    </div>
-		</div>
 
 	</body>
 </html>
