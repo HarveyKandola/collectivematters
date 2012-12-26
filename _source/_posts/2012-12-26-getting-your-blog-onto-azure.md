@@ -103,7 +103,7 @@ Side note: if you wanted to deploy a specific project that is part of a Visual S
 
 The ".deployment" file is just an INI file and is part of the [Kudu engine](https://github.com/projectkudu/kudu) that handles Azure deployments. It's open-sourced over at GitHub.
 
-All of a suddent cutting code or writing a blog post feels the same. Job done.
+All of a sudden cutting code or writing a blog post feels the same. Job done.
 
 ### Further Reading
 

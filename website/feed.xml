@@ -110,7 +110,7 @@ project = website&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The &amp;#8220;.deployment&amp;#8221; file is just an INI file and is part of the &lt;a href='https://github.com/projectkudu/kudu'&gt;Kudu engine&lt;/a&gt; that handles Azure deployments. It&amp;#8217;s open-sourced over at GitHub.&lt;/p&gt;
 
-&lt;p&gt;All of a suddent cutting code or writing a blog post feels the same. Job done.&lt;/p&gt;
+&lt;p&gt;All of a sudden cutting code or writing a blog post feels the same. Job done.&lt;/p&gt;
 
 &lt;h3 id='further_reading'&gt;Further Reading&lt;/h3&gt;
 
