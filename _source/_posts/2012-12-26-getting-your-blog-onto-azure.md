@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Your Blog Onto Azure
+title: Getting Your Jekyll Powered Blog onto Azure
 tags: blog azure jekyl github kudu
 excerpt: How to get your Jekyll powered blog running on Azure with continous deployment from GitHub.
 ---

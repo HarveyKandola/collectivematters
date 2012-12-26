@@ -6,7 +6,7 @@
 		<link>http://www.collectivematters.com</link>
 		
 			<item>
-				<title>Getting Your Blog Onto Azure</title>
+				<title>Getting Your Jekyll Powered Blog onto Azure</title>
 				<description>&lt;p&gt;Azure is simply a no-brainer for running your Microsoft stack in the cloud. But what about those scenarios where little or no Microsoft tech is involved? Like this blog. The great thing about Azure is you can run just about anything you like and with virtually zero deployment friction.&lt;/p&gt;
 
 &lt;h3 id='starting_with_jekyll'&gt;Starting With Jekyll&lt;/h3&gt;
