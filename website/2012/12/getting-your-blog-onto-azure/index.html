@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> Getting Your Blog Onto Azure |  .NET in the trenches, building products</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/grid.css" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+        <meta name="keywords" content="harvey kandola, countersoft, gemini, atlas, geminiplatform.com, atlasanswer.com, countersoft.com, gemini issue tracker, issue tracking, issue tracker " />
+		<meta name="description" content="Blog from Harvey Kandola CEO Countersoft, that makes Gemini a leading issue tracker, bug tracker, scrum/agile, testing and project management tool." />
+	</head>
+	<body>
+
+		<div class="grid grid-pad">
+		    <div class="col-1-1">
+
+				<a href="/">
+					<div id="header">
+						<h1>.NET in the trenches, building products</h1>
+					</div>
+				</a>
+
+		    </div>
+		</div>
+
+		<div class="grid grid-pad">
+		    <div class="col-9-12">
+				<div id="content">
+					<div class="post">
+
+	<h2>Getting Your Blog Onto Azure</h2>
+	<span class="date">23 Dec 2012</span>
+
+	<div class="entry">
+
+        <div class="tags">
+            
+                <span class="tag">blog</span>
+            
+                <span class="tag">azure</span>
+            
+                <span class="tag">jekyl</span>
+            
+                <span class="tag">github</span>
+            
+                <span class="tag">kudu</span>
+            
+        </div>
+
+        <p>Azure is simply a no-brainer for running your Microsoft stack in the cloud. But what about those scenarios where little or no Microsoft tech is involved? Like this blog. The great thing about Azure is you can run just about anything you like and with virtually zero deployment friction.</p>
+
+<h3 id='starting_with_jekyll'>Starting With Jekyll</h3>
+
+<p>If like me you want to try out something other than the usual Wordpress + MySQL combo, then you need to check out Jekyll as an approach for managing a blog.</p>
+
+<p>Jekyll is a blog-aware static site generator that will take a template directory and spit out a complete blog site. You write your blog posts in Markdown and watch Jekyll generate the HTML for your blog. It&#8217;s the same technology behind GitHub Pages.</p>
+
+<h4 id='the_basics'>The Basics</h4>
+
+<p>Follow the Jekyll <a href='http://jekyllrb.com'>installation</a> process to get going. It&#8217;s a Ruby gem but don&#8217;t let that put you off if you&#8217;re running Windows - not bad install process.</p>
+
+<p>Once installed you can use my blog&#8217;s <a href='https://github.com/HarveyKandola/collectivematters'>source code</a> as a template for your own blog.</p>
+
+<p>Your blog structure will look like the following:</p>
+
+<p><img src='/images/azureblog-dir1.jpg' alt='Jekyll Strcuture' /></p>
+
+<p>In summary:</p>
+
+<ul>
+<li>The &#8220;_source&#8221; folder holds your blog site structure and post content</li>
+
+<li>The &#8220;website&#8221; folder is the output from Jekyll - your generated blog site</li>
+
+<li>The &#8220;_config.yml&#8221; is the Jekyll configuration file</li>
+</ul>
+
+<p>The blog template uses <a href='http://disqus.com'>Disqus</a> for comments and the usual social sharing icons are present.</p>
+
+<h4 id='the_input'>The Input</h4>
+
+<p>A closer look at the &#8220;_source&#8221; folder:</p>
+
+<p><img src='/images/azureblog-dir2.jpg' alt='Jekyll Source Folder' /></p>
+
+<p>You can get the complete low-down on the Jekyll structure <a href='https://github.com/mojombo/jekyll/wiki/Usage'>from here</a>.</p>
+
+<h4 id='the_output'>The Output</h4>
+
+<p>Assuming you have Ruby with Jekyll installed and have used the my blog as the basis of your own, then simply run Jekyll in your blog directory (via command prompt/terminal window):</p>
+
+<pre><code>jekyll --server</code></pre>
+
+<p>Jekyll will now monitor the &#8220;_source&#8221; folder for changes and re-generate the blog and place it in the &#8220;website&#8221; folder. Have a look at this folder to see the generated blog HTML site:</p>
+
+<p><img src='/images/azureblog-dir3.jpg' alt='Your Jekyll Blog' /></p>
+
+<p>Now navigate over to http://localhost:4000 and see you blog running.</p>
+
+<p><img src='/images/azureblog-preview.jpg' alt='Your Jekyll Blog' /></p>
+
+<h4 id='writing_blog_posts'>Writing Blog Posts</h4>
+
+<p>You will find all posts residing in the &#8220;_posts&#8221; folder. Use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> to write your blog posts in any text editor (Markdown powers a lot of GitHub and Stackoverflow so you&#8217;re in good company).</p>
+
+<p><img src='/images/azureblog-dir4.jpg' alt='Writing Blog Posts' /></p>
+
+<p>As soon as you have your blog post the Jekyll engine will spit out the re-generated site. Here is what the blog post you are reading now looks like in Markdown:</p>
+
+<p><img src='/images/azureblog-markdown.jpg' alt='Markdown' /></p>
+
+<h3 id='github'>GitHub</h3>
+
+<p>One of the great things about GitHub is you get free public repositories which are perfect for your blog. Even better is that Azure can continuously build and deploy from GitHub.</p>
+
+<p>Once you have a your blog ready just push the entire folder structure onto GitHub (&#8220;_source&#8221;, &#8220;website&#8221;, etc.).</p>
+
+<p>This is my blog on GitHub:</p>
+
+<p><img src='/images/azureblog-github.jpg' alt='GitHub' /></p>
+
+<p>Take special note of the &#8220;.deployment file&#8221;.</p>
+
+<h3 id='deploy_to_azure'>Deploy to Azure</h3>
+
+<p>If you haven&#8217;t signed up for an Azure account then I recommend you do so and get 10 websites hosted for free.</p>
+
+<p>I&#8217;ll assume you are able to create a website on Azure and you can follow the <a href='http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/#header-3'>instructions</a> to set up Azure and GitHub for continuous deployment.</p>
+
+<p>At this point take a look at the Azure Deployment tab to see if Azure has pulled from GitHub and deployed your blog:</p>
+
+<p><img src='/images/azureblog-azure1.jpg' alt='Azure Deployment' /></p>
+
+<p>Simply navigate to your Azure website URL (e.g. yourblog.azurewebsites.net) and you should see your blog up and running.</p>
+
+<p>The great thing with this apporach is that we can roll back the blog site to any previous deployment state. Not entirely sure how you would do that with a WordPress blog but SQL restore springs to mind!</p>
+
+<h4 id='the_deployment_file'>The .deployment File</h4>
+
+<p>The eagle eyed reader would have spotted a potential configuration issue with the Azure + GitHub continous deployment approach. How do you tell Azure to deploy just the contents of a particular directory (in this case the contents of the Jekyll generated &#8220;website&#8221; directory)?</p>
+
+<p>Remember that &#8220;.deployment&#8221; file I mentioned above?</p>
+
+<p>Azure allows you to &#8220;control&#8221; the deployment process for pushing live your code. Adding the following line to the &#8220;.deployment&#8221; file will ensure the desired folder is deployed by Azure:</p>
+
+<pre><code>[config]
+project = website</code></pre>
+
+<p>Side note: if you wanted to deploy a specific project that is part of a Visual Studio solution then the above project setting should be used to tell Azure which project to deploy.</p>
+
+<p>The &#8220;.deployment&#8221; file is just an INI file and is part of the <a href='https://github.com/projectkudu/kudu'>Kudu engine</a> that handles Azure deployments. It&#8217;s open-sourced over at GitHub.</p>
+
+<p>All of a suddent cutting code or writing a blog post feels the same. Job done.</p>
+
+<h3 id='further_reading'>Further Reading</h3>
+
+<ul>
+<li><a href='https://github.com/mojombo/jekyll'>Jekyll</a></li>
+
+<li><a href='https://github.com/projectkudu/kudu'>Kudu</a></li>
+</ul>
+
+        <div class="share">
+            
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <html xmlns:fb="http://ogp.me/ns/fb#">
+
+            <fb:like send="false" layout="button_count" width="450" show_faces="false" style="vertical-align: top;"></fb:like>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="HarveyKandola">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+            <script type="IN/Share" data-counter="right"></script>
+
+
+        </div>
+
+    </div>
+
+	<span class="meta"></span>
+
+	
+
+	<div class="discussion">
+
+	  <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'collectivematters';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+
+	
+
+</div>
+
+
+				</div>
+		    </div>
+
+		    <div class="col-3-12">
+				<div id="sidebar">
+
+					<a href="http://www.countersoft.com">
+						<img class="icon" src="/images/icon.png" width="150px" height="150px" title="Harvey Kandola of Countersoft" alt="Harvey Kandola" />
+					</a>
+
+					<h3>Harvey Kandola</h3>
+					<p><a href="http://www.countersoft.com">Founder & CEO at Countersoft</a></p>
+
+					<div class="social-me">
+						<a href="http://www.twitter.com/HarveyKandola" title="Follow"><img src="/images/twitter_32.png" alt="Twitter" /></a>
+						&nbsp;
+						<a href="http://feeds.feedburner.com/HarveyKandola"><img src="/images/rss_32.png" alt="RSS Feed" /></a>
+						&nbsp;
+						<a rel="author" href="https://plus.google.com/117544588623893296380?rel=author">
+						  <img src="/images/google-plus-icon.png" width="32" height="32">
+						</a>
+					</div>
+
+				</div>
+		    </div>
+		</div>
+
+        <div class="grid grid-pad">
+    <div class="col-1-1">
+        <div id="footer">
+            <p>&copy; 2011-2012 <a href="http://www.countersoft.com">Harvey Kandola</a></p>
+        </div>
+    </div>
+</div>
+
+
+	</body>
+</html>

@@ -60,11 +60,11 @@
 
 <p>So here is our endpoint in our ApiController:</p>
 
-<p><img alt='Rest method' src='/images/rest-method.png' /></p>
+<p><img src='/images/rest-method.png' alt='Rest method' /></p>
 
 <p>And this is what is looks like from the client side that is consuming the web service endpoint:</p>
 
-<p><img alt='Rest call' src='/images/rest-call.png' /></p>
+<p><img src='/images/rest-call.png' alt='Rest call' /></p>
 
 <p>It&#8217;s simple. Allow any .NET application to invoke our web services with a couple of lines of code.</p>
 
@@ -72,7 +72,7 @@
 
 <p>So what&#8217;s the &#8220;glue&#8221; that allows any .NET application to talk to web services built using the ASP.NET Web API?</p>
 
-<p><img alt='Rest service' src='/images/rest-service.png' /></p>
+<p><img src='/images/rest-service.png' alt='Rest service' /></p>
 
 <p>The above represents our &#8220;proxy&#8221; class that leverages RestSharp to call web service endpoints. Note how we specify the endpoint URL passing in our REST resource parameters (e.g. /api/types/123).</p>
 
@@ -82,7 +82,7 @@
 
 <p>Once we have the RestRequest object we should allow the data format for inbound (Accept) and outbound (Content types to be specified as desired. Usually XML is what most people send down the wire but JSON works as well.</p>
 
-<p><img alt='Rest headers' src='/images/rest-headers.png' /></p>
+<p><img src='/images/rest-headers.png' alt='Rest headers' /></p>
 
 <h3 id='http_verb_overrides_for_not_so_restful_situations'>Http Verb Overrides (for not so RESTful situations)</h3>
 
@@ -90,17 +90,17 @@
 
 <p>On the client side we can simply re-route PUT and DELETE verbs as POSTs:</p>
 
-<p><img alt='Rest re-route' src='/images/rest-reroute.png' /></p>
+<p><img src='/images/rest-reroute.png' alt='Rest re-route' /></p>
 
 <p>But how would you know on the client side if the server disallows PUT or DELETE verbs? Just add some test methods (TestApiController?) as part of your implementation so clients can check to see if the server accepts PUTs and DELETEs.</p>
 
 <p>The great thing with ASP.NET Web API is that we can simply plug our own logic into the processing pipeline to handle this situation. On the server we need to intercept requests using a simple HTTP Message Handler to detect and re-route certain POST requests (marked as X-HTTP-Method-Override) to what they should be (PUTs or DELETEs).</p>
 
-<p><img alt='Rest handler' src='/images/rest-handler.png' /></p>
+<p><img src='/images/rest-handler.png' alt='Rest handler' /></p>
 
 <p>We can then simply wire up the above handler into the ASP.NET Web API pipeline:</p>
 
-<p><img alt='Rest handler' src='/images/rest-handlerwire.png' /></p>
+<p><img src='/images/rest-handlerwire.png' alt='Rest handler' /></p>
 
 <p>I couldn&#8217;t stress how simple the ASP.NET guys have made things for ISV&#8217;s like us who have to cater for all sorts of curve balls. Kudos to them!</p>
 
@@ -108,11 +108,11 @@
 
 <p>Securing calls to web services is best practice if not mandatory in most enterprise scenarios. Thankfully RestSharp provides authenticator classes out of the box that can help you send user credentials with every REST call.</p>
 
-<p><img alt='Rest auth' src='/images/rest-auth.png' /></p>
+<p><img src='/images/rest-auth.png' alt='Rest auth' /></p>
 
 <p>On the server side you can again leverage HTTP Message Handlers to wire up your custom authentication checks into the ASP.NET Web API pipeline:</p>
 
-<p><img alt='Rest auth' src='/images/rest-authhandler.png' /></p>
+<p><img src='/images/rest-authhandler.png' alt='Rest auth' /></p>
 
 <p>Using the above approach we managed to move our proprietary REST API codebase onto ASP.NET Web API stack in a couple of days. Big shout to Jon Sheehan for his RestSharp library.</p>
 

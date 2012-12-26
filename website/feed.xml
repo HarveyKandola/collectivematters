@@ -6,6 +6,124 @@
 		<link>http://www.collectivematters.com</link>
 		
 			<item>
+				<title>Getting Your Blog Onto Azure</title>
+				<description>&lt;p&gt;Azure is simply a no-brainer for running your Microsoft stack in the cloud. But what about those scenarios where little or no Microsoft tech is involved? Like this blog. The great thing about Azure is you can run just about anything you like and with virtually zero deployment friction.&lt;/p&gt;
+
+&lt;h3 id='starting_with_jekyll'&gt;Starting With Jekyll&lt;/h3&gt;
+
+&lt;p&gt;If like me you want to try out something other than the usual Wordpress + MySQL combo, then you need to check out Jekyll as an approach for managing a blog.&lt;/p&gt;
+
+&lt;p&gt;Jekyll is a blog-aware static site generator that will take a template directory and spit out a complete blog site. You write your blog posts in Markdown and watch Jekyll generate the HTML for your blog. It&amp;#8217;s the same technology behind GitHub Pages.&lt;/p&gt;
+
+&lt;h4 id='the_basics'&gt;The Basics&lt;/h4&gt;
+
+&lt;p&gt;Follow the Jekyll &lt;a href='http://jekyllrb.com'&gt;installation&lt;/a&gt; process to get going. It&amp;#8217;s a Ruby gem but don&amp;#8217;t let that put you off if you&amp;#8217;re running Windows - not bad install process.&lt;/p&gt;
+
+&lt;p&gt;Once installed you can use my blog&amp;#8217;s &lt;a href='https://github.com/HarveyKandola/collectivematters'&gt;source code&lt;/a&gt; as a template for your own blog.&lt;/p&gt;
+
+&lt;p&gt;Your blog structure will look like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-dir1.jpg' alt='Jekyll Strcuture' /&gt;&lt;/p&gt;
+
+&lt;p&gt;In summary:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &amp;#8220;_source&amp;#8221; folder holds your blog site structure and post content&lt;/li&gt;
+
+&lt;li&gt;The &amp;#8220;website&amp;#8221; folder is the output from Jekyll - your generated blog site&lt;/li&gt;
+
+&lt;li&gt;The &amp;#8220;_config.yml&amp;#8221; is the Jekyll configuration file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The blog template uses &lt;a href='http://disqus.com'&gt;Disqus&lt;/a&gt; for comments and the usual social sharing icons are present.&lt;/p&gt;
+
+&lt;h4 id='the_input'&gt;The Input&lt;/h4&gt;
+
+&lt;p&gt;A closer look at the &amp;#8220;_source&amp;#8221; folder:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-dir2.jpg' alt='Jekyll Source Folder' /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can get the complete low-down on the Jekyll structure &lt;a href='https://github.com/mojombo/jekyll/wiki/Usage'&gt;from here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id='the_output'&gt;The Output&lt;/h4&gt;
+
+&lt;p&gt;Assuming you have Ruby with Jekyll installed and have used the my blog as the basis of your own, then simply run Jekyll in your blog directory (via command prompt/terminal window):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll --server&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jekyll will now monitor the &amp;#8220;_source&amp;#8221; folder for changes and re-generate the blog and place it in the &amp;#8220;website&amp;#8221; folder. Have a look at this folder to see the generated blog HTML site:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-dir3.jpg' alt='Your Jekyll Blog' /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now navigate over to http://localhost:4000 and see you blog running.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-preview.jpg' alt='Your Jekyll Blog' /&gt;&lt;/p&gt;
+
+&lt;h4 id='writing_blog_posts'&gt;Writing Blog Posts&lt;/h4&gt;
+
+&lt;p&gt;You will find all posts residing in the &amp;#8220;_posts&amp;#8221; folder. Use &lt;a href='http://daringfireball.net/projects/markdown/syntax'&gt;Markdown&lt;/a&gt; to write your blog posts in any text editor (Markdown powers a lot of GitHub and Stackoverflow so you&amp;#8217;re in good company).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-dir4.jpg' alt='Writing Blog Posts' /&gt;&lt;/p&gt;
+
+&lt;p&gt;As soon as you have your blog post the Jekyll engine will spit out the re-generated site. Here is what the blog post you are reading now looks like in Markdown:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-markdown.jpg' alt='Markdown' /&gt;&lt;/p&gt;
+
+&lt;h3 id='github'&gt;GitHub&lt;/h3&gt;
+
+&lt;p&gt;One of the great things about GitHub is you get free public repositories which are perfect for your blog. Even better is that Azure can continuously build and deploy from GitHub.&lt;/p&gt;
+
+&lt;p&gt;Once you have a your blog ready just push the entire folder structure onto GitHub (&amp;#8220;_source&amp;#8221;, &amp;#8220;website&amp;#8221;, etc.).&lt;/p&gt;
+
+&lt;p&gt;This is my blog on GitHub:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-github.jpg' alt='GitHub' /&gt;&lt;/p&gt;
+
+&lt;p&gt;Take special note of the &amp;#8220;.deployment file&amp;#8221;.&lt;/p&gt;
+
+&lt;h3 id='deploy_to_azure'&gt;Deploy to Azure&lt;/h3&gt;
+
+&lt;p&gt;If you haven&amp;#8217;t signed up for an Azure account then I recommend you do so and get 10 websites hosted for free.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ll assume you are able to create a website on Azure and you can follow the &lt;a href='http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/#header-3'&gt;instructions&lt;/a&gt; to set up Azure and GitHub for continuous deployment.&lt;/p&gt;
+
+&lt;p&gt;At this point take a look at the Azure Deployment tab to see if Azure has pulled from GitHub and deployed your blog:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/azureblog-azure1.jpg' alt='Azure Deployment' /&gt;&lt;/p&gt;
+
+&lt;p&gt;Simply navigate to your Azure website URL (e.g. yourblog.azurewebsites.net) and you should see your blog up and running.&lt;/p&gt;
+
+&lt;p&gt;The great thing with this apporach is that we can roll back the blog site to any previous deployment state. Not entirely sure how you would do that with a WordPress blog but SQL restore springs to mind!&lt;/p&gt;
+
+&lt;h4 id='the_deployment_file'&gt;The .deployment File&lt;/h4&gt;
+
+&lt;p&gt;The eagle eyed reader would have spotted a potential configuration issue with the Azure + GitHub continous deployment approach. How do you tell Azure to deploy just the contents of a particular directory (in this case the contents of the Jekyll generated &amp;#8220;website&amp;#8221; directory)?&lt;/p&gt;
+
+&lt;p&gt;Remember that &amp;#8220;.deployment&amp;#8221; file I mentioned above?&lt;/p&gt;
+
+&lt;p&gt;Azure allows you to &amp;#8220;control&amp;#8221; the deployment process for pushing live your code. Adding the following line to the &amp;#8220;.deployment&amp;#8221; file will ensure the desired folder is deployed by Azure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[config]
+project = website&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Side note: if you wanted to deploy a specific project that is part of a Visual Studio solution then the above project setting should be used to tell Azure which project to deploy.&lt;/p&gt;
+
+&lt;p&gt;The &amp;#8220;.deployment&amp;#8221; file is just an INI file and is part of the &lt;a href='https://github.com/projectkudu/kudu'&gt;Kudu engine&lt;/a&gt; that handles Azure deployments. It&amp;#8217;s open-sourced over at GitHub.&lt;/p&gt;
+
+&lt;p&gt;All of a suddent cutting code or writing a blog post feels the same. Job done.&lt;/p&gt;
+
+&lt;h3 id='further_reading'&gt;Further Reading&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='https://github.com/mojombo/jekyll'&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='https://github.com/projectkudu/kudu'&gt;Kudu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+				<published>Sun Dec 23 00:00:00 +0000 2012</published>
+				<link>http://www.collectivematters.com/2012/12/getting-your-blog-onto-azure</link>
+			</item>
+		
+			<item>
 				<title>World's First MVC4 App - Say Hello to Gemini 5</title>
 				<description>&lt;p&gt;I have been speaking at events, user groups and blogging about how we switched to MVC4 while it was still in Developer Preview. Our new tech stack consists of ASP.NET MVC4, Web API, Sass and NHibernate. We re-built our Gemini product afresh and it sports a pretty unique approach to application navigation - App-Nav™. Some folks have commented this approach is Metro-esque. See for yourself.&lt;/p&gt;
 
@@ -13,7 +131,7 @@
 
 &lt;p&gt;I am delighted to say we have finally shipped Gemini 5. In summary it&amp;#8217;s an all-in-one agile tracker that covers Agile, Scrum, Help Desk, Ticketing and good old Issue Tracking. Go &lt;a href='http://www.geminiplatform.com'&gt;check it out&lt;/a&gt; and see why we got rave reviews at Microsoft TechEd!&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='issue tracker' src='/images/first-look.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/first-look.png' alt='issue tracker' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Gemini 4 was built over a number years on the ASP.NET WebForms 2.0 stack. We just shifted our entire tech stack to the latest from Microsoft. I will blog later why we &amp;#8220;started again&amp;#8221; even though &lt;a href='http://www.joelonsoftware.com/articles/fog0000000069.html'&gt;conventional wisdom&lt;/a&gt; says otherwise.&lt;/p&gt;
 
@@ -61,7 +179,7 @@
 &lt;li&gt;Application caching is just based on regular ASP.NET Cache with an option to leverage Redis&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img alt='file structure' src='/images/first-structure.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/first-structure.png' alt='file structure' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We simply used the framework as-is with the usual mix of Design Patterns and best practices (e.g. using &lt;a href='http://unity.codeplex.com'&gt;Unity&lt;/a&gt; for Dependency Injection (because it works on Medium Trust as well)).&lt;/p&gt;
 
@@ -71,7 +189,7 @@
 
 &lt;p&gt;Simple mapping files are all we need to define persistence.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Hibernate' src='/images/first-hbm.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/first-hbm.png' alt='Hibernate' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Who says you cannot get ORM to scale and into commercial products?!&lt;/p&gt;
 
@@ -89,7 +207,7 @@
 
 &lt;p&gt;How about you kill all top-line navigation and instead allow users to pin, share and navigate using Cards/Tiles? Bake in badge notifications to let you know when things change and you&amp;#8217;ve killed off email at the same time.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='AppNav' src='/images/first-appnav.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/first-appnav.png' alt='AppNav' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hope something here helps someone, someday.&lt;/p&gt;
 
@@ -116,11 +234,11 @@
 
 &lt;p&gt;So here is our endpoint in our ApiController:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest method' src='/images/rest-method.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-method.png' alt='Rest method' /&gt;&lt;/p&gt;
 
 &lt;p&gt;And this is what is looks like from the client side that is consuming the web service endpoint:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest call' src='/images/rest-call.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-call.png' alt='Rest call' /&gt;&lt;/p&gt;
 
 &lt;p&gt;It&amp;#8217;s simple. Allow any .NET application to invoke our web services with a couple of lines of code.&lt;/p&gt;
 
@@ -128,7 +246,7 @@
 
 &lt;p&gt;So what&amp;#8217;s the &amp;#8220;glue&amp;#8221; that allows any .NET application to talk to web services built using the ASP.NET Web API?&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest service' src='/images/rest-service.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-service.png' alt='Rest service' /&gt;&lt;/p&gt;
 
 &lt;p&gt;The above represents our &amp;#8220;proxy&amp;#8221; class that leverages RestSharp to call web service endpoints. Note how we specify the endpoint URL passing in our REST resource parameters (e.g. /api/types/123).&lt;/p&gt;
 
@@ -138,7 +256,7 @@
 
 &lt;p&gt;Once we have the RestRequest object we should allow the data format for inbound (Accept) and outbound (Content types to be specified as desired. Usually XML is what most people send down the wire but JSON works as well.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest headers' src='/images/rest-headers.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-headers.png' alt='Rest headers' /&gt;&lt;/p&gt;
 
 &lt;h3 id='http_verb_overrides_for_not_so_restful_situations'&gt;Http Verb Overrides (for not so RESTful situations)&lt;/h3&gt;
 
@@ -146,17 +264,17 @@
 
 &lt;p&gt;On the client side we can simply re-route PUT and DELETE verbs as POSTs:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest re-route' src='/images/rest-reroute.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-reroute.png' alt='Rest re-route' /&gt;&lt;/p&gt;
 
 &lt;p&gt;But how would you know on the client side if the server disallows PUT or DELETE verbs? Just add some test methods (TestApiController?) as part of your implementation so clients can check to see if the server accepts PUTs and DELETEs.&lt;/p&gt;
 
 &lt;p&gt;The great thing with ASP.NET Web API is that we can simply plug our own logic into the processing pipeline to handle this situation. On the server we need to intercept requests using a simple HTTP Message Handler to detect and re-route certain POST requests (marked as X-HTTP-Method-Override) to what they should be (PUTs or DELETEs).&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest handler' src='/images/rest-handler.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-handler.png' alt='Rest handler' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We can then simply wire up the above handler into the ASP.NET Web API pipeline:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest handler' src='/images/rest-handlerwire.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-handlerwire.png' alt='Rest handler' /&gt;&lt;/p&gt;
 
 &lt;p&gt;I couldn&amp;#8217;t stress how simple the ASP.NET guys have made things for ISV&amp;#8217;s like us who have to cater for all sorts of curve balls. Kudos to them!&lt;/p&gt;
 
@@ -164,11 +282,11 @@
 
 &lt;p&gt;Securing calls to web services is best practice if not mandatory in most enterprise scenarios. Thankfully RestSharp provides authenticator classes out of the box that can help you send user credentials with every REST call.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest auth' src='/images/rest-auth.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-auth.png' alt='Rest auth' /&gt;&lt;/p&gt;
 
 &lt;p&gt;On the server side you can again leverage HTTP Message Handlers to wire up your custom authentication checks into the ASP.NET Web API pipeline:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Rest auth' src='/images/rest-authhandler.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/rest-authhandler.png' alt='Rest auth' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Using the above approach we managed to move our proprietary REST API codebase onto ASP.NET Web API stack in a couple of days. Big shout to Jon Sheehan for his RestSharp library.&lt;/p&gt;
 
@@ -227,7 +345,7 @@
 
 &lt;p&gt;You can specify your custom fonts using such stylesheet code:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Include font files' src='/images/glyphs-include.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-include.png' alt='Include font files' /&gt;&lt;/p&gt;
 
 &lt;h3 id='representing_icons_with_font'&gt;Representing Icons With Font&lt;/h3&gt;
 
@@ -241,7 +359,7 @@
 
 &lt;p&gt;Here is an example of where we have built a toolbar using this approach:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Common icons' src='/images/glyphs-commonicons.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-commonicons.png' alt='Common icons' /&gt;&lt;/p&gt;
 
 &lt;p&gt;No images, all CSS with a custom font that contains representations of our required icons.&lt;/p&gt;
 
@@ -253,11 +371,11 @@
 
 &lt;p&gt;You simply design your icon and assign it to alpha-numeric in your font layout. For example, lower case &amp;#8220;t&amp;#8221; is used to represent a star icon (glyph).&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Star icon' src='/images/glyphs-star.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-star.png' alt='Star icon' /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can then go ahead and design all your icons and bind them to different glyphs in your font.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='All icons' src='/images/glyphs-icons.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-icons.png' alt='All icons' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Inkscape will simply save your work as a SVG file format.&lt;/p&gt;
 
@@ -267,7 +385,7 @@
 
 &lt;p&gt;Just select your .SVG file and then click the &lt;strong&gt;&amp;#8220;Download You Kit&amp;#8221;&lt;/strong&gt; button.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Download font kit' src='/images/glyphs-downloadkit.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-downloadkit.png' alt='Download font kit' /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Tip: when you click &amp;#8220;Add Fonts&amp;#8221; you will notice the file upload will not select .SVG files - just type in the name of your SVG file and continue.&lt;/em&gt;&lt;/p&gt;
 
@@ -275,21 +393,21 @@
 
 &lt;p&gt;The kit you download will contain everything you need.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Kit files' src='/images/glyphs-files.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-files.png' alt='Kit files' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Just fire up the .html file and see how your icons look as represented by your new font. All your icons will be mapped to characters such as &amp;#8220;a&amp;#8221;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Glyphs chart' src='/images/glyphs-chart.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-chart.png' alt='Glyphs chart' /&gt;&lt;/p&gt;
 
 &lt;h3 id='referencing_your_web_embeddable_font'&gt;Referencing Your Web Embeddable Font&lt;/h3&gt;
 
 &lt;p&gt;Place your web embeddable font inside your MVC4 solution like any other asset:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Glyphs assets' src='/images/glyphs-assets.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-assets.png' alt='Glyphs assets' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We simply consume the font through stylesheet code:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Glyphs css' src='/images/glyphs-css.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-css.png' alt='Glyphs css' /&gt;&lt;/p&gt;
 
 &lt;h3 id='using_your_web_embeddable_font'&gt;Using Your Web Embeddable Font&lt;/h3&gt;
 
@@ -299,25 +417,25 @@
 
 &lt;p&gt;This class is using our custom web embeddable font:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Glyphs fonticon' src='/images/glyphs-fonticon.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-fonticon.png' alt='Glyphs fonticon' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Did you spot the &amp;#8220;voodoo&amp;#8221; syntax above? We are saying that this style matches any element that has a CSS class attached which starts with &amp;#8220;fonticon-&amp;#8220;. This selector has been around since the days of IE6.&lt;/p&gt;
 
 &lt;p&gt;And now we can define a CSS class that extends this rule on a per icon type. In this case lower case &amp;#8220;b&amp;#8221; is our &amp;#8220;help&amp;#8221; icon.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Glyphs fonticon' src='/images/glyphs-fonticon2.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-fonticon2.png' alt='Glyphs fonticon' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Finally, lets put &amp;#8220;icons&amp;#8221; on the webpage:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Using Glyphs' src='/images/glyphs-useit.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-useit.png' alt='Using Glyphs' /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;#8230;and this will result in:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Using Glyph result' src='/images/glyphs-result.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-result.png' alt='Using Glyph result' /&gt;&lt;/p&gt;
 
 &lt;p&gt;And because our icons are represented through a font, we can change the color and size as required using CSS attributes like &lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font-size&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Using Glyph result' src='/images/glyphs-result2.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-result2.png' alt='Using Glyph result' /&gt;&lt;/p&gt;
 
 &lt;p&gt;There is simply no need to produce different images files for various image sizes or colors.&lt;/p&gt;
 
@@ -327,7 +445,7 @@
 
 &lt;p&gt;But we can also replace these images with CSS equivalents using &lt;a href='http://colorzilla.com/gradient-editor'&gt;ColorZilla&lt;/a&gt;. It&amp;#8217;s possible to generate via CSS most effects that you would normally produce in Photoshop.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='gradient' src='/images/glyphs-gradient.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/glyphs-gradient.png' alt='gradient' /&gt;&lt;/p&gt;
 
 &lt;h3 id='summary'&gt;Summary&lt;/h3&gt;
 
@@ -386,7 +504,7 @@
 
 &lt;p&gt;Essentially, you have to keep your &amp;#8220;foundation&amp;#8221; stylesheets separate from &amp;#8220;presentation&amp;#8221; stylesheets (which are theme specific).&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Separate CSS' src='/images/theme-split.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-split.png' alt='Separate CSS' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Note how the core stylesheets are outside of the &amp;#8220;default&amp;#8221; theme folder.&lt;/p&gt;
 
@@ -394,7 +512,7 @@
 
 &lt;p&gt;Images should be organized to ensure theme specific images are kept away from &amp;#8220;meta&amp;#8221; level images.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme images' src='/images/theme-images.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-images.png' alt='Theme images' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Notice how the &amp;#8220;default&amp;#8221; theme images folder lives inside a &amp;#8220;design&amp;#8221; folder whilst &amp;#8220;meta&amp;#8221; images are completely ring-fenced. This can be hard to refactor afterwards so get it done right from day one.&lt;/p&gt;
 
@@ -408,7 +526,7 @@
 
 &lt;p&gt;We can address all these issues by carefully structuring our style assets:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme structure' src='/images/theme-structure.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-structure.png' alt='Theme structure' /&gt;&lt;/p&gt;
 
 &lt;p&gt;So now we can have different themes and within each theme we can support platform specific styling. As a bonus we also have a &amp;#8220;global&amp;#8221; stylesheet that contains common CSS elements applicable to all platforms and themes.&lt;/p&gt;
 
@@ -424,19 +542,19 @@
 
 &lt;p&gt;There are three levels of nesting that we can employ:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme levels' src='/images/theme-levels.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-levels.png' alt='Theme levels' /&gt;&lt;/p&gt;
 
 &lt;h3 id='level_0__globalscss'&gt;Level 0 - global.scss&lt;/h3&gt;
 
 &lt;p&gt;This stylesheet contains theme-neutral variables and styles including re-usable Sass &amp;#8220;mixins&amp;#8221; (that can be thought of as CSS functions). The contents of this &amp;#8220;global&amp;#8221; stylesheet will be available to all themes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme level 0' src='/images/theme-level0.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-level0.png' alt='Theme level 0' /&gt;&lt;/p&gt;
 
 &lt;h3 id='level_1__themescss'&gt;Level 1 - theme.scss&lt;/h3&gt;
 
 &lt;p&gt;Next up is the theme specific stylesheet that includes all the reusable stuff from our &amp;#8220;global&amp;#8221; stylesheet above.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme level 1' src='/images/theme-level1.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-level1.png' alt='Theme level 1' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We specify the theme colors and other theme specific stuff.&lt;/p&gt;
 
@@ -446,11 +564,11 @@
 
 &lt;p&gt;We can now set up the &amp;#8216;desktop.scss&amp;#8217; stylesheet with styling that is relevant for serving content to desktop browsers.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme level 2' src='/images/theme-level2a.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-level2a.png' alt='Theme level 2' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Similarly, we can do different styling for mobile devices using the &amp;#8216;mobile.scss&amp;#8217; file.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme level 2' src='/images/theme-level2b.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-level2b.png' alt='Theme level 2' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We could use a SINGLE stylesheet for both desktop and mobile devices and leverage CSS Media Queries.&lt;/p&gt;
 
@@ -460,11 +578,11 @@
 
 &lt;p&gt;Now all your master pages can simply reference the required theme for the user:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Theme reference' src='/images/theme-reference.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-reference.png' alt='Theme reference' /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can simply expose the theme name from your &lt;a href='http://haacked.com/archive/2011/02/21/changing-base-type-of-a-razor-view.aspx'&gt;BaseViewPage&lt;/a&gt; implementation:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Base View Page' src='/images/theme-baseviewpage.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-baseviewpage.png' alt='Base View Page' /&gt;&lt;/p&gt;
 
 &lt;p&gt;By using our own BaseViewPage implementation we can centralize and inject non-view-model stuff into all view pages.&lt;/p&gt;
 
@@ -482,7 +600,7 @@
 
 &lt;p&gt;As a developer it drives me crazy to see two dozen hex color codes in my CSS. So try to work with a core half dozen colors and then leverage some Sass &amp;#8220;darken&amp;#8221; and &amp;#8220;lighten&amp;#8221; magic to create additional color shades!&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Sass Magic' src='/images/theme-sass.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/theme-sass.png' alt='Sass Magic' /&gt;&lt;/p&gt;
 
 &lt;p&gt;That works for me.&lt;/p&gt;
 
@@ -531,11 +649,11 @@
 
 &lt;p&gt;Regardless of your CDN choice you will still need to create those static files inside your Visual Studio project and work with them locally.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Assets folder' src='/images/yslow-assets-folder.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-assets-folder.png' alt='Assets folder' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once you have your assets in place you should mirror the same folder structure on your CDN. This will allow you to switch between locally deployed assets and those on the CDN. Here&amp;#8217;s a screenshot showing the mirrored folder structure on Amazon CloudFront.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Amazon Assets folder' src='/images/yslow-assets-folder-amazon.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-assets-folder-amazon.png' alt='Amazon Assets folder' /&gt;&lt;/p&gt;
 
 &lt;p&gt;We use &lt;a href='http://www.cloudberrylab.com/'&gt;CloudBerry Lab&amp;#8217;s&lt;/a&gt; cloud storage tools as they provide freeware tools to manage Amazon CloudFront, Windows Azure and other platforms.&lt;/p&gt;
 
@@ -545,7 +663,7 @@
 
 &lt;p&gt;Install the Microsoft Ajax Minifier and then do the magic in your projects Post-build event.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Microsoft Ajax Minifier' src='/images/yslow-minifier.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-minifier.png' alt='Microsoft Ajax Minifier' /&gt;&lt;/p&gt;
 
 &lt;p&gt;You should minify your stylesheets into a single file and your script into another file. Example:&lt;/p&gt;
 
@@ -562,15 +680,15 @@ $(ProjectDir)assets\scripts\site.js
 
 &lt;p&gt;Even with the resilience that CDN&amp;#8217;s bring, we still insisted that switching between locally available static assets or those on the CDN should be pretty straightforward.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Reference CDN Assets' src='/images/yslow-localpth.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-localpth.png' alt='Reference CDN Assets' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Did you notice the &amp;#8216;AssetsPath&amp;#8217; reference above? This will either contain a local path or one that points towards the CDN. You can expose this variable to all your ASP.NET MVC views by using a custom &lt;a href='http://msdn.microsoft.com/en-us/library/system.web.mvc.webviewpage(v=vs.98'&gt;WebViewPage&lt;/a&gt;.aspx). You simply register your own View Page by editing the &amp;#8220;web.config&amp;#8221; file that resides &lt;strong&gt;inside your &amp;#8220;Views&amp;#8221; folder&lt;/strong&gt; and reference your own &amp;#8220;Web View Page&amp;#8221; base class.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Using own Web View Page' src='/images/yslow-config.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-config.png' alt='Using own Web View Page' /&gt;&lt;/p&gt;
 
 &lt;p&gt;And finally here is our implementation that exposes the correct assets path (yes, you could make this a configuration option).&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Assets path switch' src='/images/yslow-path.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-path.png' alt='Assets path switch' /&gt;&lt;/p&gt;
 
 &lt;h3 id='manage_cdn_contents__watch_out'&gt;Manage CDN Contents - watch out!&lt;/h3&gt;
 
@@ -590,7 +708,7 @@ $(ProjectDir)assets\scripts\site.js
 
 &lt;p&gt;For consistencies sake, lower case all your asset filenames such as images, scripts and stylesheets. If you don&amp;#8217;t Amazon, will chuck something like this back at you.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Assets filename casing' src='/images/yslow-casing.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-casing.png' alt='Assets filename casing' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bottom line is that casing matters on Amazon CloudFront.&lt;/p&gt;
 
@@ -600,7 +718,7 @@ $(ProjectDir)assets\scripts\site.js
 
 &lt;p&gt;In CloudBerry you can specify Expires Header for any content on your CDN.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Assets file expires' src='/images/yslow-expires.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-expires.png' alt='Assets file expires' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Thankfully you can set these headers on folders for recursive goodness.&lt;/p&gt;
 
@@ -610,7 +728,7 @@ $(ProjectDir)assets\scripts\site.js
 
 &lt;p&gt;Again, CloudBerry provides a way for you to ensure all assets are public.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Access control list' src='/images/yslow-acl.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-acl.png' alt='Access control list' /&gt;&lt;/p&gt;
 
 &lt;p&gt;These gotchas can initially result in Yahoo! YSlow not showing what you expect in terms of website performance best practice.&lt;/p&gt;
 
@@ -618,15 +736,15 @@ $(ProjectDir)assets\scripts\site.js
 
 &lt;p&gt;Finally, go and install the Yahoo! YSlow extension for your web browser and test website performance.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Install YSlow' src='/images/yslow-install.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-install.png' alt='Install YSlow' /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you first run the test you may have to do a couple of things to tell this tool what&amp;#8217;s what in order to get an accurate grading. This usually means telling YSlow about your CDN.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='Set CDN' src='/images/yslow-setcdn.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-setcdn.png' alt='Set CDN' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once YSlow know about your CDN, all your previous work setting up CDN, Expires headers, minification should pay off with a nice &amp;#8216;Grade A&amp;#8217;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='YSlow Grade A' src='/images/yslow-result.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='/images/yslow-result.png' alt='YSlow Grade A' /&gt;&lt;/p&gt;
 
 &lt;p&gt;There&amp;#8217;s nothing more pleasing than a job well done!&lt;/p&gt;
 
@@ -943,21 +1061,6 @@ $(ProjectDir)assets\scripts\site.js
 &lt;p&gt;Join us, think in purple today. If you want to do something interesting, think of something you rely on and like, then think to yourself &amp;#8216;yes, but the trouble with it is&amp;#8230;&amp;#8217;. You might be surprised by what you come up with. Whatever it is, we are sure it will be an improvement.&lt;/p&gt;</description>
 				<published>Mon Dec 20 00:00:00 +0000 2010</published>
 				<link>http://www.collectivematters.com/2010/12/the-trouble-with</link>
-			</item>
-		
-			<item>
-				<title>A Breed Apart</title>
-				<description>&lt;p&gt;A wise man once said &amp;#8220;beware of software developers for they are very chivalrous and will need to find a dragon to slay&amp;#8221;. If you spend as much time as we have around programmers you will know what he meant. Back in the eighties, a smart and eager young COBOL programmer became the butt of many a joke when, entirely unbidden, he wrote some assembler code to read and write records. This he claimed was more efficient than using the equivalent COBOL statements. Now it does not matter if you are technical or not, suffice to say this is the equivalent of putting a small motor in your wall with a gyroscope attached in order to keep your pictures level when you hang them; it might work but it is complete overkill and totally unnecessary. He must have looked at the statements READ RECORD and WRITE RECORD and thought, &amp;#8220;nah, nowhere near challenging enough, I&amp;#8217;ll find out what that does and then improve on it (somehow)&amp;#8221;.&lt;/p&gt;
-
-&lt;p&gt;The knowledge that this type of behaviour is prevalent amongst the technically gifted is what allows urban legends such as the NASA space pen to flourish. This apocryphal story states that while America spent millions developing a pen that would write in zero-gravity space, the Russians simply used pencils. It is a pretty outrageous slur on NASA&amp;#8217;s competence but many of us are prepared to believe it because we just know that huge sums of money are wasted on extravagant technical wizardry to address problems that have a simple, everyday solution.&lt;/p&gt;
-
-&lt;p&gt;When profit-driven business leaders, customer-focused sales executives and pragmatic, non-technical Project Managers face off with overly inventive developers there is always a capacity for misunderstanding and distrust. Sometimes we can laugh at these Quixotic acts of geek chivalry but more often than not we are frustrated and annoyed by them. We shouldn&amp;#8217;t be. The mistake that those who mock and scorn are making is to assume that the world works better if only everyone thought like them. Clearly it would be a general disaster of Orwellian proportions if we were all obsessed with profits, brand identity and timelines. If we lived in a world where nobody really cared to understand how the TV actually worked who would invent the most brilliant labour-saving device known to man: the remote control?&lt;/p&gt;
-
-&lt;p&gt;All forms of creativity left unchecked produces bizarre results. We have only to look at the recent credit crisis to see that financial gurus need checks and balances. Marketing disasters are everywhere. Small fortunes are spent on sales and advertising that produce near zero returns and in some cases are positively harmful to brand identity. Every year, hundreds of projects run by highly-trained, pragmatic and sensible project managers, overrun by millions. In this context, the developer&amp;#8217;s equivalent of writing his own linked list with binary chop algorithm, when the simple statement SEARCH has already been provided by the tool vendor, is a small price to pay for genius on tap.&lt;/p&gt;
-
-&lt;p&gt;And what genius! The next time you might be tempted to poke fun at software developers just remember that every word you read on this website, every phone call you make, every car you drive, every show you watch, every plane you fly in, every-just-about-everything has been studied, mastered and improved by this special breed, who some people will just never understand.&lt;/p&gt;</description>
-				<published>Wed Nov 24 00:00:00 +0000 2010</published>
-				<link>http://www.collectivematters.com/2010/11/a-breed-apart</link>
 			</item>
 		
 	</channel>
