@@ -80,11 +80,11 @@
 
 <p>Regardless of your CDN choice you will still need to create those static files inside your Visual Studio project and work with them locally.</p>
 
-<p><img src='/images/yslow-assets-folder.png' alt='Assets folder' /></p>
+<p><img alt='Assets folder' src='/images/yslow-assets-folder.png' /></p>
 
 <p>Once you have your assets in place you should mirror the same folder structure on your CDN. This will allow you to switch between locally deployed assets and those on the CDN. Here&#8217;s a screenshot showing the mirrored folder structure on Amazon CloudFront.</p>
 
-<p><img src='/images/yslow-assets-folder-amazon.png' alt='Amazon Assets folder' /></p>
+<p><img alt='Amazon Assets folder' src='/images/yslow-assets-folder-amazon.png' /></p>
 
 <p>We use <a href='http://www.cloudberrylab.com/'>CloudBerry Lab&#8217;s</a> cloud storage tools as they provide freeware tools to manage Amazon CloudFront, Windows Azure and other platforms.</p>
 
@@ -94,7 +94,7 @@
 
 <p>Install the Microsoft Ajax Minifier and then do the magic in your projects Post-build event.</p>
 
-<p><img src='/images/yslow-minifier.png' alt='Microsoft Ajax Minifier' /></p>
+<p><img alt='Microsoft Ajax Minifier' src='/images/yslow-minifier.png' /></p>
 
 <p>You should minify your stylesheets into a single file and your script into another file. Example:</p>
 
@@ -111,15 +111,15 @@ $(ProjectDir)assets\scripts\site.js
 
 <p>Even with the resilience that CDN&#8217;s bring, we still insisted that switching between locally available static assets or those on the CDN should be pretty straightforward.</p>
 
-<p><img src='/images/yslow-localpth.png' alt='Reference CDN Assets' /></p>
+<p><img alt='Reference CDN Assets' src='/images/yslow-localpth.png' /></p>
 
 <p>Did you notice the &#8216;AssetsPath&#8217; reference above? This will either contain a local path or one that points towards the CDN. You can expose this variable to all your ASP.NET MVC views by using a custom <a href='http://msdn.microsoft.com/en-us/library/system.web.mvc.webviewpage(v=vs.98'>WebViewPage</a>.aspx). You simply register your own View Page by editing the &#8220;web.config&#8221; file that resides <strong>inside your &#8220;Views&#8221; folder</strong> and reference your own &#8220;Web View Page&#8221; base class.</p>
 
-<p><img src='/images/yslow-config.png' alt='Using own Web View Page' /></p>
+<p><img alt='Using own Web View Page' src='/images/yslow-config.png' /></p>
 
 <p>And finally here is our implementation that exposes the correct assets path (yes, you could make this a configuration option).</p>
 
-<p><img src='/images/yslow-path.png' alt='Assets path switch' /></p>
+<p><img alt='Assets path switch' src='/images/yslow-path.png' /></p>
 
 <h3 id='manage_cdn_contents__watch_out'>Manage CDN Contents - watch out!</h3>
 
@@ -139,7 +139,7 @@ $(ProjectDir)assets\scripts\site.js
 
 <p>For consistencies sake, lower case all your asset filenames such as images, scripts and stylesheets. If you don&#8217;t Amazon, will chuck something like this back at you.</p>
 
-<p><img src='/images/yslow-casing.png' alt='Assets filename casing' /></p>
+<p><img alt='Assets filename casing' src='/images/yslow-casing.png' /></p>
 
 <p>Bottom line is that casing matters on Amazon CloudFront.</p>
 
@@ -149,7 +149,7 @@ $(ProjectDir)assets\scripts\site.js
 
 <p>In CloudBerry you can specify Expires Header for any content on your CDN.</p>
 
-<p><img src='/images/yslow-expires.png' alt='Assets file expires' /></p>
+<p><img alt='Assets file expires' src='/images/yslow-expires.png' /></p>
 
 <p>Thankfully you can set these headers on folders for recursive goodness.</p>
 
@@ -159,7 +159,7 @@ $(ProjectDir)assets\scripts\site.js
 
 <p>Again, CloudBerry provides a way for you to ensure all assets are public.</p>
 
-<p><img src='/images/yslow-acl.png' alt='Access control list' /></p>
+<p><img alt='Access control list' src='/images/yslow-acl.png' /></p>
 
 <p>These gotchas can initially result in Yahoo! YSlow not showing what you expect in terms of website performance best practice.</p>
 
@@ -167,15 +167,15 @@ $(ProjectDir)assets\scripts\site.js
 
 <p>Finally, go and install the Yahoo! YSlow extension for your web browser and test website performance.</p>
 
-<p><img src='/images/yslow-install.png' alt='Install YSlow' /></p>
+<p><img alt='Install YSlow' src='/images/yslow-install.png' /></p>
 
 <p>When you first run the test you may have to do a couple of things to tell this tool what&#8217;s what in order to get an accurate grading. This usually means telling YSlow about your CDN.</p>
 
-<p><img src='/images/yslow-setcdn.png' alt='Set CDN' /></p>
+<p><img alt='Set CDN' src='/images/yslow-setcdn.png' /></p>
 
 <p>Once YSlow know about your CDN, all your previous work setting up CDN, Expires headers, minification should pay off with a nice &#8216;Grade A&#8217;.</p>
 
-<p><img src='/images/yslow-result.png' alt='YSlow Grade A' /></p>
+<p><img alt='YSlow Grade A' src='/images/yslow-result.png' /></p>
 
 <p>There&#8217;s nothing more pleasing than a job well done!</p>
 
