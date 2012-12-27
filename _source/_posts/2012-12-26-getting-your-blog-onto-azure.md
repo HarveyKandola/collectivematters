@@ -40,11 +40,11 @@ You can get the complete low-down on the Jekyll structure [from here](https://gi
 
 #### The Output
 
-Assuming you have Ruby with Jekyll installed and have used the my blog as the basis of your own, then simply run Jekyll in your blog directory (via command prompt/terminal window):
+Assuming you have Ruby with Jekyll installed and have used my blog as the basis of your own, then simply run Jekyll in your blog directory (via command prompt/terminal window):
 
     jekyll --server
 
-Jekyll will now monitor the "\_source" folder for changes and re-generate the blog and place it in the "website" folder. Have a look at this folder to see the generated blog HTML site:
+Jekyll will now monitor the "\_source" folder for changes, re-generate the blog and place it in the "website" folder. Have a look at this folder to see the generated blog HTML site:
 
 ![Your Jekyll Blog](/images/azureblog-dir3.jpg "Your Jekyll Blog")
 
