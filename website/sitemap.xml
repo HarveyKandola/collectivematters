@@ -2,71 +2,71 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://www.collectivematters.com/2009/11/the-enemy-within</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/2010/11/a-breed-apart</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/2010/12/the-trouble-with</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/2011/03/nimble-testing-from-countersoft</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2011/09/five-mistakes-that-can-kill-your-issue-tracker
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2011/11/linking-end-users-help-desk-project-management-software-development
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2012/01/tips-for-a-yahoo-yslow-grade-a-website-with-asp-net-mvc
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2012/01/solving-real-world-theming-challenges-with-mvc4-and-sass
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/2012/02/optimizing-your-mvc4-app-to-the-max</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2012/04/consuming-asp-net-web-api-with-restsharp
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.collectivematters.com/2012/09/say-hello-to-gemini-5-worlds-first-mvc-4-app
         </loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/2012/12/getting-your-blog-onto-azure</loc>
-        <lastmod>2013-01-02T11:12:27+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/404.html</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/archive.html</loc>
-        <lastmod>2012-12-28T08:31:13+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.collectivematters.com/feed.xml</loc>
@@ -74,6 +74,6 @@
     </url>
     <url>
         <loc>http://www.collectivematters.com/</loc>
-        <lastmod>2013-01-02T11:12:27+00:00</lastmod>
+        <lastmod>2013-01-02T13:34:43+00:00</lastmod>
     </url>
 </urlset>
