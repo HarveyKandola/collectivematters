@@ -2,13 +2,13 @@
 layout: post
 title: Getting Your Jekyll Powered Blog onto Azure
 tags: blog azure jekyl github kudu
-excerpt: How to get your Jekyll powered blog running on Azure with continous deployment from GitHub.
+excerpt: How to get your Jekyll powered blog running on Azure with continuous deployment from GitHub.
 ---
 Azure is simply a no-brainer for running your Microsoft stack in the cloud. But what about those scenarios where little or no Microsoft tech is involved? Like this blog. The great thing about Azure is you can run just about anything you like and with virtually zero deployment friction.
 
 ### Starting With Jekyll
 
-If like me you want to try out something other than the usual Wordpress + MySQL combo, then you need to check out Jekyll as an approach for managing a blog.
+If like me you want to try out something other than the usual WordPress + MySQL combo, then you need to check out Jekyll as an approach for managing a blog.
 
 Jekyll is a blog-aware static site generator that will take a template directory and spit out a complete blog site. You write your blog posts in Markdown and watch Jekyll generate the HTML for your blog. It's the same technology behind GitHub Pages.
 
@@ -20,7 +20,7 @@ Once installed you can use my blog's [source code](https://github.com/HarveyKand
 
 Your blog structure will look like the following:
 
-![Jekyll Strcuture](/images/azureblog-dir1.jpg "Jekyll Structure")
+![Jekyll Structure](/images/azureblog-dir1.jpg "Jekyll Structure")
 
 In summary:
 
@@ -90,7 +90,7 @@ The great thing with this apporach is that we can roll back the blog site to any
 
 #### The .deployment File
 
-The eagle eyed reader would have spotted a potential configuration issue with the Azure + GitHub continous deployment approach. How do you tell Azure to deploy just the contents of a particular directory (in this case the contents of the Jekyll generated "website" directory)?
+The eagle eyed reader would have spotted a potential configuration issue with the Azure + GitHub continuous deployment approach. How do you tell Azure to deploy just the contents of a particular directory (in this case the contents of the Jekyll generated "website" directory)?
 
 Remember that ".deployment" file I mentioned above?
 
