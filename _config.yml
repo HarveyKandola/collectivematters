@@ -5,7 +5,7 @@ url: http://www.collectivematters.com
 auto: true
 permalink: /:year/:month/:title
 exclude: [server, misc]
-safe: false
-
+server_port: 4000
+plugins:     ./_source/_plugins
 source:      ./_source
 destination: ./website
